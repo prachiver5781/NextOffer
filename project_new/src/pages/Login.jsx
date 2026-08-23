@@ -1,181 +1,366 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// Login & Registration Component
+// Handles student signup and signin, saving accounts to localStorage
 
-export default function Login({ setLoggedIn, setProfile, showToast }) {
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getTodayDateString } from "./hooks";
+import {
+  isValidEmail,
+  StrictEmailInput,
+  StrictNumberInput,
+} from "./ValidationInputs";
+
+// Keys for storing user data in browser localStorage
+export const USERS_STORAGE_KEY = "nextoffer_users_list";
+export const SESSION_STORAGE_KEY = "nextoffer_active_session";
+
+// Helper function to read users from localStorage
+export function loadUsersFromStorage() {
+  try {
+    const raw = localStorage.getItem(USERS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (err) {
+    console.log("Could not load users list:", err);
+    return [];
+  }
+}
+
+// Helper function to save users back to localStorage
+export function saveUsersToStorage(users) {
+  try {
+    localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
+  } catch (err) {
+    console.error("Failed to save users:", err);
+  }
+}
+
+export default function Login({ onLoginSuccess }) {
   const navigate = useNavigate();
 
+  // Mode can be either 'login' or 'create'
   const [mode, setMode] = useState("login");
+
+  // Form input states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // Handle form submission for both login and signup
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
-    const saved = localStorage.getItem("nextoffer-account");
+    // Basic email format check
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
 
+    const normalizedEmail = email.trim().toLowerCase();
+    const users = loadUsersFromStorage();
+
+    // Signup / Registration flow
     if (mode === "create") {
       if (!name.trim()) {
         setError("Please enter your name.");
         return;
       }
 
-      if (!email.trim()) {
-        setError("Please enter your email.");
-        return;
-      }
-
       if (password.length < 6) {
-        setError("Password must contain at least 6 characters.");
+        setError("Password must be at least 6 characters.");
         return;
       }
 
-      if (saved) {
-        setError("An account already exists. Please log in.");
+      // Check if this email is already registered
+      const existing = users.find(
+        (u) => u.email.toLowerCase() === normalizedEmail
+      );
+
+      if (existing) {
+        setError(
+          "An account with this email already exists. Please log in."
+        );
         return;
       }
 
-      const account = {
+      // Create new student user object
+      const newUser = {
+        id: `user_${Date.now()}`,
         name: name.trim(),
-        email: email.trim().toLowerCase(),
-        password,
+        email: normalizedEmail,
+        password: password,
+
+        profile: {
+          name: name.trim(),
+          email: normalizedEmail,
+          phone: phone.trim(),
+          title: "Frontend Developer · Student Developer",
+          location: "India · Open to internships",
+          about:
+            "Enthusiastic student developer learning web development and preparing for tech placements.",
+
+          skills: [
+            "JavaScript",
+            "React",
+            "Python",
+            "DSA",
+            "HTML5",
+            "CSS3",
+          ],
+
+          stats: {
+            problems: 0,
+            projects: 0,
+          },
+        },
+
+        completed: [],
+        submissions: [],
+        projects: [],
+        activeDates: [getTodayDateString()],
       };
 
-      localStorage.setItem("nextoffer-account", JSON.stringify(account));
+      const updated = [...users, newUser];
 
-      const profileData = {
-        name: account.name,
-        email: account.email,
-        phone: "",
-        skills: "",
-      };
-
-      localStorage.setItem("nextoffer-profile", JSON.stringify(profileData));
-      setProfile(profileData);
-      setLoggedIn(true);
-      showToast("Account created successfully! 🎉");
+      saveUsersToStorage(updated);
+      onLoginSuccess(newUser);
       navigate("/dashboard");
       return;
     }
 
-    // Login mode
-    if (!saved) {
-      setError("No account found. Create an account first.");
+    // Login flow
+    const user = users.find(
+      (u) => u.email.toLowerCase() === normalizedEmail
+    );
+
+    if (!user) {
+      setError(
+        "No account found with this email. Please click Sign up to create an account."
+      );
       return;
     }
 
-    const account = JSON.parse(saved);
-
-    if (
-      email.trim().toLowerCase() !== account.email ||
-      password !== account.password
-    ) {
-      setError("Incorrect email or password.");
+    if (user.password !== password) {
+      setError("Incorrect password. Please try again.");
       return;
     }
 
-    const savedProfile = localStorage.getItem("nextoffer-profile");
-    if (savedProfile) {
-      setProfile(JSON.parse(savedProfile));
-    }
+    // Update active practice date for streak calculation
+    const todayStr = getTodayDateString();
+    const activeDates = new Set(user.activeDates || []);
 
-    setLoggedIn(true);
-    showToast("Welcome back! 👋");
+    activeDates.add(todayStr);
+    user.activeDates = Array.from(activeDates);
+
+    saveUsersToStorage(users);
+
+    onLoginSuccess(user);
     navigate("/dashboard");
   };
 
   return (
-    <section className="login-page">
-      <form className="login-card" onSubmit={handleSubmit}>
-        <Link className="brand login-brand" to="/">
-          Next<span>Offer</span>
-        </Link>
+    <div className="login-screen-wrapper">
+      <div className="auth-form-card">
 
-        <div className="login-icon">{mode === "login" ? "👋" : "🚀"}</div>
+        {/* Project Branding Header */}
+        <div className="auth-brand-header">
+          <div className="brand-icon-box">⚡</div>
 
-        <h2>{mode === "login" ? "Welcome back" : "Create your account"}</h2>
-        <p>
+          <div>
+            <h2
+              style={{
+                fontSize: "20px",
+                fontWeight: 800,
+              }}
+            >
+              Next<span>Offer</span>
+            </h2>
+
+            <p
+              style={{
+                fontSize: "12px",
+                color: "var(--text-muted)",
+              }}
+            >
+              Student Placement Prep Portal
+            </p>
+          </div>
+        </div>
+
+        <h3
+          style={{
+            fontSize: "18px",
+            fontWeight: 700,
+            marginBottom: "6px",
+          }}
+        >
           {mode === "login"
-            ? "Continue your interview preparation journey."
-            : "Start preparing for your next opportunity."}
+            ? "Welcome back"
+            : "Create Student Account"}
+        </h3>
+
+        <p
+          style={{
+            color: "var(--text-muted)",
+            fontSize: "13.5px",
+            marginBottom: "20px",
+          }}
+        >
+          {mode === "login"
+            ? "Log in to track your streak, solve coding challenges, and build your resume."
+            : "Sign up to start practicing coding and prepare for tech placements."}
         </p>
 
-        {mode === "create" && (
-          <label>
-            Your name
+        <form
+          onSubmit={handleSubmit}
+          className="custom-form"
+        >
+          {mode === "create" && (
+            <div className="form-field-group">
+              <label>Full Name *</label>
+
+              <input
+                required
+                className="custom-input"
+                placeholder="e.g. Alex Morgan"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+          )}
+
+          <div className="form-field-group">
+            <label>
+              <span>Email Address *</span>
+
+              <span className="field-constraint-tag">
+                Valid email format
+              </span>
+            </label>
+
+            <StrictEmailInput
+              required
+              value={email}
+              onChange={setEmail}
+              placeholder="e.g. student@college.edu"
+            />
+          </div>
+
+          {mode === "create" && (
+            <div className="form-field-group">
+              <label>
+                <span>Phone Number</span>
+
+                <span className="field-constraint-tag">
+                  Digits only
+                </span>
+              </label>
+
+              <StrictNumberInput
+                value={phone}
+                onChange={setPhone}
+                placeholder="e.g. 9876543210"
+                maxLength={12}
+              />
+            </div>
+          )}
+
+          <div className="form-field-group">
+            <label>Password *</label>
+
             <input
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name"
+              type="password"
+              className="custom-input"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-          </label>
-        )}
+          </div>
 
-        <label>
-          Email
-          <input
-            required
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
-          />
-        </label>
-
-        <label>
-          Password
-          <input
-            required
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder={
-              mode === "create"
-                ? "Minimum 6 characters"
-                : "Enter your password"
-            }
-          />
-        </label>
-
-        {error && <p className="form-error">⚠ {error}</p>}
-
-        <button className="primary-button full" type="submit">
-          {mode === "login" ? "Log in →" : "Create account →"}
-        </button>
-
-        <div className="login-switch">
-          {mode === "login" ? (
-            <>
-              Don't have an account?
-              <button
-                type="button"
-                onClick={() => {
-                  setMode("create");
-                  setError("");
-                }}
-              >
-                Create account
-              </button>
-            </>
-          ) : (
-            <>
-              Already have an account?
-              <button
-                type="button"
-                onClick={() => {
-                  setMode("login");
-                  setError("");
-                }}
-              >
-                Log in
-              </button>
-            </>
+          {error && (
+            <div
+              style={{
+                color: "#f87171",
+                fontSize: "13px",
+                fontWeight: 600,
+              }}
+            >
+              {error}
+            </div>
           )}
-        </div>
-      </form>
-    </section>
+
+          <button
+            type="submit"
+            className="btn-primary-gradient"
+            style={{
+              width: "100%",
+              justifyContent: "center",
+              padding: "12px",
+            }}
+          >
+            {mode === "login"
+              ? "Sign In →"
+              : "Create Account →"}
+          </button>
+
+          {/* Toggle between login and sign up */}
+          <div
+            style={{
+              textAlign: "center",
+              marginTop: "12px",
+              fontSize: "13px",
+              color: "var(--text-muted)",
+            }}
+          >
+            {mode === "login" ? (
+              <>
+                Don't have an account?{" "}
+
+                <button
+                  type="button"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "#818cf8",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setMode("create");
+                    setError("");
+                  }}
+                >
+                  Sign up
+                </button>
+              </>
+            ) : (
+              <>
+                Already registered?{" "}
+
+                <button
+                  type="button"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "#818cf8",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setMode("login");
+                    setError("");
+                  }}
+                >
+                  Sign in
+                </button>
+              </>
+            )}
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
