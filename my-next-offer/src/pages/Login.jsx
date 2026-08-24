@@ -8,7 +8,7 @@ import {
   isValidEmail,
   StrictEmailInput,
   StrictNumberInput,
-} from "./ValidationInputs";
+} from "../ValidationInputs";
 
 // Keys for storing user data in browser localStorage
 export const USERS_STORAGE_KEY = "nextoffer_users_list";

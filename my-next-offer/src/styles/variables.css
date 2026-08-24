@@ -1,14 +1,24 @@
 /* =========================================================
    NEXTOFFER DESIGN TOKENS & CSS VARIABLES
-========================================================= */
+   ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+
+/* =========================================================
+   DEFAULT / DARK THEME
+   ========================================================= */
 
 :root {
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Fonts */
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
 
-  /* Theme Palette - NextOffer Dark */
+  --font-mono: "JetBrains Mono", monospace;
+
+
+  /* Backgrounds */
   --bg-app: #080c14;
   --bg-sidebar: #0b0f19;
   --bg-surface: #0f1523;
@@ -16,48 +26,105 @@
   --bg-surface-hover: #1a243b;
   --bg-card: #0f1523;
   --bg-input: #0a0e1a;
-  
+
+
+  /* Borders */
   --border-main: rgba(255, 255, 255, 0.08);
   --border-subtle: rgba(255, 255, 255, 0.04);
   --border-focus: #6366f1;
 
+
+  /* Text */
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-subtle: #64748b;
 
+
+  /* Primary colors */
   --primary: #6366f1;
   --primary-glow: rgba(99, 102, 241, 0.35);
   --primary-hover: #4f46e5;
+
   --cyan: #06b6d4;
+
   --purple: #8b5cf6;
   --purple-glow: rgba(139, 92, 246, 0.3);
 
-  --gradient-brand: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #8b5cf6 100%);
-  --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  --gradient-bar: linear-gradient(180deg, #a855f7 0%, #06b6d4 100%);
-  --gradient-hero: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 70%),
-                       radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.1), transparent 70%);
 
+  /* Gradients */
+  --gradient-brand: linear-gradient(
+    135deg,
+    #06b6d4 0%,
+    #6366f1 50%,
+    #8b5cf6 100%
+  );
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #8b5cf6 100%
+  );
+
+  --gradient-bar: linear-gradient(
+    180deg,
+    #a855f7 0%,
+    #06b6d4 100%
+  );
+
+  --gradient-hero:
+    radial-gradient(
+      circle at top right,
+      rgba(99, 102, 241, 0.15),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(6, 182, 212, 0.1),
+      transparent 70%
+    );
+
+
+  /* Status colors */
   --success: #10b981;
   --success-bg: rgba(16, 185, 129, 0.15);
+
   --warning: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.15);
+
   --danger: #ef4444;
   --danger-bg: rgba(239, 68, 68, 0.15);
 
+
+  /* Border radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
-  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
 
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  --shadow-md:
+    0 8px 24px -4px rgba(0, 0, 0, 0.45);
+
+  --shadow-glow:
+    0 0 25px rgba(99, 102, 241, 0.25);
+
+
+  /* Animation */
   --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
 [data-theme="dark"] {
+
+  /* Backgrounds */
   --bg-app: #080c14;
   --bg-sidebar: #0b0f19;
   --bg-surface: #0f1523;
@@ -65,20 +132,39 @@
   --bg-surface-hover: #1a243b;
   --bg-card: #0f1523;
   --bg-input: #0a0e1a;
-  
+
+
+  /* Borders */
   --border-main: rgba(255, 255, 255, 0.08);
   --border-subtle: rgba(255, 255, 255, 0.04);
   --border-focus: #6366f1;
 
+
+  /* Text */
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-subtle: #64748b;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+
+  /* Shadows */
+  --shadow-sm:
+    0 2px 8px rgba(0, 0, 0, 0.3);
+
+  --shadow-md:
+    0 8px 24px -4px rgba(0, 0, 0, 0.45);
+
+  --shadow-glow:
+    0 0 25px rgba(99, 102, 241, 0.25);
 }
 
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
 [data-theme="light"] {
+
+  /* Backgrounds */
   --bg-app: #f4f6fa;
   --bg-sidebar: #ffffff;
   --bg-surface: #ffffff;
@@ -87,14 +173,192 @@
   --bg-card: #ffffff;
   --bg-input: #f8fafc;
 
-  --border-main: rgba(0, 0, 0, 0.08);
-  --border-subtle: rgba(0, 0, 0, 0.04);
+
+  /* Borders */
+  --border-main: rgba(15, 23, 42, 0.10);
+  --border-subtle: rgba(15, 23, 42, 0.05);
   --border-focus: #6366f1;
 
+
+  /* Text */
   --text-main: #0f172a;
   --text-muted: #64748b;
   --text-subtle: #94a3b8;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+
+  /* Primary */
+  --primary: #6366f1;
+  --primary-glow: rgba(99, 102, 241, 0.20);
+  --primary-hover: #4f46e5;
+
+
+  /* Shadows */
+  --shadow-sm:
+    0 2px 8px rgba(15, 23, 42, 0.06);
+
+  --shadow-md:
+    0 8px 24px -4px rgba(15, 23, 42, 0.10);
+
+  --shadow-glow:
+    0 0 25px rgba(99, 102, 241, 0.15);
+}
+
+
+/* =========================================================
+   GLOBAL THEME TRANSITION
+   ========================================================= */
+
+html {
+  background: var(--bg-app);
+}
+
+body {
+  background: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =========================================================
+   COMMON ELEMENTS
+   ========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   LIGHT MODE - DASHBOARD
+   ========================================================= */
+
+[data-theme="light"] .dashboard-hero-card {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f8fafc 50%,
+    #f5f3ff 100%
+  );
+
+  border-color: rgba(15, 23, 42, 0.08);
+
+  box-shadow:
+    0 8px 24px -4px rgba(15, 23, 42, 0.10);
+}
+
+
+[data-theme="light"] .hero-left-content h1 {
+  color: var(--text-main);
+}
+
+
+[data-theme="light"] .hero-left-content p {
+  color: var(--text-muted);
+}
+
+
+[data-theme="light"] .radar-center-badge {
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #f1f5f9 100%
+  );
+
+  border-color: rgba(139, 92, 246, 0.5);
+
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.18);
+}
+
+
+[data-theme="light"] .radar-center-badge .streak-num {
+  color: var(--text-main);
+}
+
+
+[data-theme="light"] .dashboard-panel-card {
+  background: var(--bg-card);
+  border-color: var(--border-main);
+}
+
+
+[data-theme="light"] .daily-challenge-box {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-main);
+}
+
+
+[data-theme="light"] .continue-learning-item {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-main);
+}
+
+
+[data-theme="light"] .progress-bar-track {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   LIGHT MODE - GENERAL PANELS
+   ========================================================= */
+
+[data-theme="light"] .panel {
+  background: var(--bg-card);
+  border-color: var(--border-main);
+}
+
+
+[data-theme="light"] .dashboard-stat {
+  background: var(--bg-card);
+  border-color: var(--border-main);
+}
+
+
+[data-theme="light"] .quick-card {
+  background: var(--bg-card);
+  border-color: var(--border-main);
+}
+
+
+[data-theme="light"] .roadmap-row {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-main);
+}
+
+
+[data-theme="light"] .achievement {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-main);
+}
+
+
+/* =========================================================
+   SMOOTH THEME CHANGE
+   ========================================================= */
+
+html,
+body,
+#root,
+.page,
+.panel,
+.dashboard-stat,
+.quick-card,
+.roadmap-row,
+.achievement,
+.dashboard-hero-card,
+.dashboard-panel-card,
+.daily-challenge-box,
+.continue-learning-item {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }

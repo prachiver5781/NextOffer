@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { topics, roadmap } from "./data";
 
-
-export default function Dashboard({ completed, profile, streak }) {
+export default function Dashboard({
+  completed = [],
+  profile = {},
+  streak = 0,
+}) {
   const percentage =
     topics.length === 0
       ? 0
@@ -16,161 +19,588 @@ export default function Dashboard({ completed, profile, streak }) {
 
   return (
     <section className="page">
-      <div className="page-heading">
-        <div>
+
+      {/* =========================
+          HERO SECTION
+      ========================= */}
+      <section className="dashboard-hero-card">
+
+        <div className="hero-left-content">
           <p className="eyebrow">YOUR DASHBOARD</p>
-          <h2>Welcome back{profile?.name ? `, ${profile.name}` : ""} 👋</h2>
-          <p>Keep learning and move one step closer to your next offer.</p>
-        </div>
-        <Link className="primary-button" to="/topics">
-          Practice now →
-        </Link>
-      </div>
 
-      <div className="dashboard-stats">
-        <div className="dashboard-stat purple">
-          <div className="stat-icon">📚</div>
-          <strong>{completed.length}</strong>
-          <span>Topics completed</span>
-        </div>
+          <h1>
+            Welcome back
+            {profile?.name ? `, ${profile.name}` : ""} 👋
+          </h1>
 
-        <div className="dashboard-stat blue">
-          <div className="stat-icon">🎯</div>
-          <strong>{remaining}</strong>
-          <span>Topics remaining</span>
-        </div>
+          <p>
+            Keep learning and move one step closer to your next offer.
+          </p>
 
-        <div className="dashboard-stat green">
-          <div className="stat-icon">📈</div>
-          <strong>{percentage}%</strong>
-          <span>Overall progress</span>
+          <div className="hero-btn-group">
+            <Link to="/topics" className="primary-button">
+              Practice now →
+            </Link>
+
+            <Link to="/roadmap" className="secondary-button">
+              View roadmap
+            </Link>
+          </div>
         </div>
 
-        <div className="dashboard-stat orange">
-          <div className="stat-icon">🔥</div>
-          <strong>{streak}</strong>
-          <span>Day streak</span>
-        </div>
-      </div>
+        {/* Animated streak radar */}
+        <div className="hero-radar-wrapper">
 
-      <div className="dashboard-main-grid">
-        <section className="panel progress-panel">
-          <div className="panel-heading">
-            <div>
-              <span className="panel-label">YOUR PROGRESS</span>
-              <h3>Keep pushing forward</h3>
-            </div>
-            <strong className="big-percentage">{percentage}%</strong>
+          <div className="orbit-circle orbit-1"></div>
+          <div className="orbit-circle orbit-2"></div>
+          <div className="orbit-circle orbit-3"></div>
+
+          <div className="orbit-particle particle-1">
+            📚
           </div>
 
-          <div className="large-progress">
-            <div style={{ width: `${percentage}%` }} />
+          <div className="orbit-particle particle-2">
+            🎯
           </div>
 
-          <div className="progress-footer">
-            <span>{completed.length} of {topics.length} topics</span>
-            <Link to="/topics">View topics →</Link>
-          </div>
-        </section>
-
-        <section className="panel daily-panel">
-          <div className="panel-heading">
-            <div>
-              <span className="panel-label">DAILY GOAL</span>
-              <h3>Stay consistent</h3>
-            </div>
-            <span className="goal-icon">🎯</span>
+          <div className="orbit-particle particle-3">
+            ⚡
           </div>
 
-          <div className="daily-goal">
-            <strong>{Math.min(completed.length, 4)} / 4</strong>
-            <span>tasks completed</span>
+          <div className="radar-center-badge">
+            <span className="streak-num">
+              {streak}
+            </span>
+
+            <span className="streak-lbl">
+              Day Streak
+            </span>
           </div>
 
-          <Link to="/topics" className="secondary-button full">
-            Continue learning
-          </Link>
-        </section>
-      </div>
-
-      <div className="content-grid">
-        <section className="panel">
-          <div className="section-heading">
-            <div>
-              <span className="panel-label">ROADMAP</span>
-              <h3>Continue your journey</h3>
-            </div>
-            <Link to="/roadmap">View all →</Link>
-          </div>
-
-          {roadmap.slice(0, 4).map((item, index) => (
-            <div className="roadmap-row" key={item.week}>
-              <div className="roadmap-number">{index + 1}</div>
-              <div className="roadmap-content">
-                <strong>{item.title}</strong>
-                <small>{item.items.slice(0, 3).join(" • ")}</small>
-              </div>
-              <span className="roadmap-arrow">→</span>
-            </div>
-          ))}
-        </section>
-
-        <section className="panel">
-          <div className="section-heading">
-            <div>
-              <span className="panel-label">COMPLETED</span>
-              <h3>Recent achievements</h3>
-            </div>
-          </div>
-
-          {completedTopics.length === 0 ? (
-            <div className="empty-small">
-              <span>🌱</span>
-              <p>Complete your first topic to see your achievements here.</p>
-            </div>
-          ) : (
-            completedTopics.slice(-4).reverse().map((topic) => (
-              <div className="achievement" key={topic.id}>
-                <span className="achievement-icon">{topic.icon}</span>
-                <div>
-                  <strong>{topic.title}</strong>
-                  <small>{topic.type}</small>
-                </div>
-                <span className="check">✓</span>
-              </div>
-            ))
-          )}
-        </section>
-      </div>
-
-      <section className="quick-actions">
-        <h3>Quick actions</h3>
-        <div>
-          <Link to="/topics" className="quick-card">
-            <span>📚</span>
-            <strong>Practice topics</strong>
-            <small>Improve your concepts</small>
-          </Link>
-
-          <Link to="/mock-interview" className="quick-card">
-            <span>🎤</span>
-            <strong>Mock interview</strong>
-            <small>Test yourself</small>
-          </Link>
-
-          <Link to="/resume" className="quick-card">
-            <span>📄</span>
-            <strong>Build resume</strong>
-            <small>Showcase your skills</small>
-          </Link>
-
-          <Link to="/roadmap" className="quick-card">
-            <span>🗺️</span>
-            <strong>View roadmap</strong>
-            <small>Know what to learn next</small>
-          </Link>
         </div>
       </section>
+
+
+      {/* =========================
+          STAT CARDS
+      ========================= */}
+      <div className="dashboard-horizontal-grid">
+
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+            <div className="panel-title-group">
+              <h3>📚 Topics completed</h3>
+              <p>Your completed practice topics</p>
+            </div>
+
+            <strong>
+              {completed.length}
+            </strong>
+          </div>
+
+          <div className="progress-bar-track">
+            <div
+              className="progress-bar-fill"
+              style={{
+                width: `${percentage}%`,
+              }}
+            ></div>
+          </div>
+
+          <p style={{ marginTop: "10px" }}>
+            {percentage}% of your topics completed
+          </p>
+
+        </section>
+
+
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+            <div className="panel-title-group">
+              <h3>🎯 Topics remaining</h3>
+              <p>Keep practicing to complete them</p>
+            </div>
+
+            <strong>
+              {remaining}
+            </strong>
+          </div>
+
+          <Link
+            to="/topics"
+            className="panel-link-text"
+          >
+            Start practicing →
+          </Link>
+
+        </section>
+
+      </div>
+
+
+      {/* =========================
+          PROGRESS + DAILY GOAL
+      ========================= */}
+      <div className="dashboard-horizontal-grid">
+
+        {/* Progress */}
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+
+            <div className="panel-title-group">
+              <h3>Your progress</h3>
+              <p>Keep pushing forward</p>
+            </div>
+
+            <strong>
+              {percentage}%
+            </strong>
+
+          </div>
+
+          <div className="progress-bar-track">
+            <div
+              className="progress-bar-fill"
+              style={{
+                width: `${percentage}%`,
+              }}
+            ></div>
+          </div>
+
+          <p style={{ marginTop: "12px" }}>
+            {completed.length} of {topics.length} topics completed
+          </p>
+
+          <Link
+            to="/topics"
+            className="panel-link-text"
+          >
+            View topics →
+          </Link>
+
+        </section>
+
+
+        {/* Daily goal */}
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+
+            <div className="panel-title-group">
+              <h3>🎯 Daily goal</h3>
+              <p>Stay consistent every day</p>
+            </div>
+
+            <strong>
+              {Math.min(completed.length, 4)} / 4
+            </strong>
+
+          </div>
+
+          <div className="progress-bar-track">
+            <div
+              className="progress-bar-fill"
+              style={{
+                width: `${Math.min(
+                  (completed.length / 4) * 100,
+                  100
+                )}%`,
+              }}
+            ></div>
+          </div>
+
+          <p style={{ marginTop: "12px" }}>
+            {Math.min(completed.length, 4)} / 4 tasks completed
+          </p>
+
+          <Link
+            to="/topics"
+            className="panel-link-text"
+          >
+            Continue learning →
+          </Link>
+
+        </section>
+
+      </div>
+
+
+      {/* =========================
+          DAILY CHALLENGE + CONTINUE
+      ========================= */}
+      <div className="dashboard-horizontal-grid">
+
+        {/* Daily challenge */}
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+
+            <div className="panel-title-group">
+              <h3>🔥 Daily Challenge</h3>
+              <p>Test yourself today</p>
+            </div>
+
+            <span className="panel-link-text">
+              Today
+            </span>
+
+          </div>
+
+          <div className="daily-challenge-box">
+
+            <span className="challenge-number-watermark">
+              01
+            </span>
+
+            <div className="challenge-details">
+
+              <div className="challenge-tags-top">
+                <span>🎯</span>
+                <span>Practice</span>
+              </div>
+
+              <h4>
+                Master your next concept
+              </h4>
+
+              <p>
+                Choose a topic and complete a practice
+                challenge to improve your placement preparation.
+              </p>
+
+              <div className="tag-pills-row">
+                <span className="field-constraint-tag">
+                  DSA
+                </span>
+
+                <span className="field-constraint-tag">
+                  JavaScript
+                </span>
+              </div>
+
+            </div>
+
+            <Link
+              to="/topics"
+              className="challenge-action-circle"
+            >
+              →
+            </Link>
+
+          </div>
+
+        </section>
+
+
+        {/* Continue learning */}
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+
+            <div className="panel-title-group">
+              <h3>📚 Continue Learning</h3>
+              <p>Pick up where you left off</p>
+            </div>
+
+            <Link
+              to="/topics"
+              className="panel-link-text"
+            >
+              View all →
+            </Link>
+
+          </div>
+
+          <div className="continue-learning-list">
+
+            {topics.slice(0, 3).map((topic) => {
+
+              const isCompleted = completed.includes(topic.id);
+
+              return (
+                <Link
+                  to="/topics"
+                  className="continue-learning-item"
+                  key={topic.id}
+                >
+
+                  <span className="cl-icon">
+                    {topic.icon || "📘"}
+                  </span>
+
+                  <div className="cl-progress-info">
+
+                    <div className="cl-title-row">
+
+                      <strong>
+                        {topic.title}
+                      </strong>
+
+                      <span>
+                        {isCompleted ? "100%" : "0%"}
+                      </span>
+
+                    </div>
+
+                    <div className="progress-bar-track">
+
+                      <div
+                        className="progress-bar-fill"
+                        style={{
+                          width: isCompleted ? "100%" : "0%",
+                        }}
+                      ></div>
+
+                    </div>
+
+                  </div>
+
+                  <span className="cl-arrow">
+                    →
+                  </span>
+
+                </Link>
+              );
+            })}
+
+          </div>
+
+        </section>
+
+      </div>
+
+
+      {/* =========================
+          ROADMAP + ACHIEVEMENTS
+      ========================= */}
+      <div className="dashboard-horizontal-grid">
+
+        {/* Roadmap */}
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+
+            <div className="panel-title-group">
+              <h3>🗺️ Continue your journey</h3>
+              <p>Follow your placement roadmap</p>
+            </div>
+
+            <Link
+              to="/roadmap"
+              className="panel-link-text"
+            >
+              View all →
+            </Link>
+
+          </div>
+
+          <div className="continue-learning-list">
+
+            {roadmap.slice(0, 4).map((item, index) => (
+
+              <Link
+                to="/roadmap"
+                className="continue-learning-item"
+                key={item.week}
+              >
+
+                <span className="cl-icon">
+                  {index + 1}
+                </span>
+
+                <div className="cl-progress-info">
+
+                  <div className="cl-title-row">
+
+                    <strong>
+                      {item.title}
+                    </strong>
+
+                    <span>
+                      Week {item.week}
+                    </span>
+
+                  </div>
+
+                  <span style={{ fontSize: "11px" }}>
+                    {item.items.slice(0, 2).join(" • ")}
+                  </span>
+
+                </div>
+
+                <span className="cl-arrow">
+                  →
+                </span>
+
+              </Link>
+
+            ))}
+
+          </div>
+
+        </section>
+
+
+        {/* Achievements */}
+        <section className="dashboard-panel-card">
+
+          <div className="panel-header-row">
+
+            <div className="panel-title-group">
+              <h3>🏆 Recent achievements</h3>
+              <p>Your completed topics</p>
+            </div>
+
+          </div>
+
+          <div className="continue-learning-list">
+
+            {completedTopics.length === 0 ? (
+
+              <div className="daily-challenge-box">
+
+                <div className="challenge-details">
+
+                  <h4>
+                    🌱 Start your journey
+                  </h4>
+
+                  <p>
+                    Complete your first topic to see
+                    your achievements here.
+                  </p>
+
+                </div>
+
+              </div>
+
+            ) : (
+
+              completedTopics
+                .slice(-4)
+                .reverse()
+                .map((topic) => (
+
+                  <div
+                    className="continue-learning-item"
+                    key={topic.id}
+                  >
+
+                    <span className="cl-icon">
+                      {topic.icon || "✅"}
+                    </span>
+
+                    <div className="cl-progress-info">
+
+                      <div className="cl-title-row">
+
+                        <strong>
+                          {topic.title}
+                        </strong>
+
+                        <span>
+                          ✓ Completed
+                        </span>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                ))
+
+            )}
+
+          </div>
+
+        </section>
+
+      </div>
+
+
+      {/* =========================
+          QUICK ACTIONS
+      ========================= */}
+      <section className="dashboard-panel-card">
+
+        <div className="panel-header-row">
+
+          <div className="panel-title-group">
+            <h3>⚡ Quick actions</h3>
+            <p>Jump straight into your preparation</p>
+          </div>
+
+        </div>
+
+        <div className="dashboard-horizontal-grid">
+
+          <Link
+            to="/topics"
+            className="continue-learning-item"
+          >
+            <span className="cl-icon">📚</span>
+
+            <div className="cl-progress-info">
+              <strong>Practice topics</strong>
+              <span>Improve your concepts</span>
+            </div>
+
+            <span className="cl-arrow">→</span>
+          </Link>
+
+
+          <Link
+            to="/mock-interview"
+            className="continue-learning-item"
+          >
+            <span className="cl-icon">🎤</span>
+
+            <div className="cl-progress-info">
+              <strong>Mock interview</strong>
+              <span>Test yourself</span>
+            </div>
+
+            <span className="cl-arrow">→</span>
+          </Link>
+
+
+          <Link
+            to="/resume"
+            className="continue-learning-item"
+          >
+            <span className="cl-icon">📄</span>
+
+            <div className="cl-progress-info">
+              <strong>Build resume</strong>
+              <span>Showcase your skills</span>
+            </div>
+
+            <span className="cl-arrow">→</span>
+          </Link>
+
+
+          <Link
+            to="/roadmap"
+            className="continue-learning-item"
+          >
+            <span className="cl-icon">🗺️</span>
+
+            <div className="cl-progress-info">
+              <strong>View roadmap</strong>
+              <span>Know what to learn next</span>
+            </div>
+
+            <span className="cl-arrow">→</span>
+          </Link>
+
+        </div>
+
+      </section>
+
     </section>
   );
 }
