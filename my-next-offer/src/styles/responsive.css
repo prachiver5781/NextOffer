@@ -1,0 +1,60 @@
+/* =========================================================
+   RESPONSIVE LAYOUTS & MEDIA QUERIES
+========================================================= */
+
+@media (max-width: 1024px) {
+  .dashboard-horizontal-grid,
+  .analytics-charts-grid,
+  .profile-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .achievements-tiles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .devsphere-sidebar {
+    position: fixed;
+    left: -280px;
+  }
+
+  .devsphere-sidebar.open {
+    left: 0;
+  }
+
+  .dashboard-hero-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    padding: 28px 20px;
+  }
+
+  .hero-btn-group {
+    justify-content: center;
+  }
+
+  .stats-row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-banner-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .profile-stats-row {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .topbar-search-box {
+    display: none;
+  }
+}
