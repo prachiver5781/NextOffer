@@ -1,0 +1,280 @@
+/* =========================================================
+   RESUME BUILDER & PRINT TO PDF STYLES
+========================================================= */
+
+/* Resume Editor Tabs */
+.resume-tabs-nav {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-main);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.resume-tab-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.resume-tab-btn:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-main);
+}
+
+.resume-tab-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+}
+
+/* ATS Resume Preview Document Layout */
+.ats-resume-paper {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: var(--radius-md);
+  padding: 44px 48px;
+  font-family: var(--font-sans);
+  box-shadow: var(--shadow-md);
+  max-width: 820px;
+  margin: 0 auto;
+  line-height: 1.45;
+  border: 1px solid #e2e8f0;
+}
+
+.ats-resume-header {
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+.ats-resume-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.ats-resume-headline {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.ats-resume-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: #334155;
+  align-items: center;
+}
+
+.ats-resume-contacts a {
+  color: #2563eb;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ats-section-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 4px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+.ats-entry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.ats-entry-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ats-entry-sub {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.ats-entry-date {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.ats-bullet-text {
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.5;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.ats-skills-list {
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* Resume Editor Card and Items */
+.resume-editor-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.resume-item-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: var(--transition);
+  margin-bottom: 12px;
+}
+
+.resume-item-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: var(--bg-surface-elevated);
+}
+
+.resume-item-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.resume-item-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.resume-item-subtitle {
+  font-size: 13px;
+  color: #818cf8;
+  font-weight: 600;
+}
+
+.resume-item-meta {
+  font-size: 12px;
+  color: var(--text-subtle);
+}
+
+.resume-item-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.resume-item-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.resume-skill-chip {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #c084fc;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resume-skill-delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.resume-skill-delete-btn:hover {
+  color: #f87171;
+}
+
+/* =========================================================
+   PRINT MEDIA STYLES - CLEAN PDF EXPORT
+========================================================= */
+@media print {
+  /* Hide UI chrome */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .devsphere-sidebar,
+  .topbar-header,
+  .resume-tabs-nav,
+  .resume-actions-toolbar,
+  .resume-editor-section,
+  .sidebar-footer,
+  .btn-primary-gradient,
+  .btn-secondary-dark,
+  .toast-popup {
+    display: none !important;
+  }
+
+  .main-content-wrapper,
+  .page-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .ats-resume-paper {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 1.2cm;
+    size: auto;
+  }
+}
