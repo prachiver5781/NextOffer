@@ -96,8 +96,8 @@ export default function Login({ onLoginSuccess }) {
           name: name.trim(),
           email: normalizedEmail,
           phone: phone.trim(),
-          title: "Frontend Developer · Student Developer",
-          location: "India · Open to internships",
+          title: "Frontend Developer Â· Student Developer",
+          location: "India Â· Open to internships",
           about:
             "Enthusiastic student developer learning web development and preparing for tech placements.",
 
@@ -163,68 +163,36 @@ export default function Login({ onLoginSuccess }) {
   return (
     <div className="login-screen-wrapper">
       <div className="auth-form-card">
-
         {/* Project Branding Header */}
         <div className="auth-brand-header">
-          <div className="brand-icon-box">⚡</div>
-
+          <div className="brand-icon-box">âš¡</div>
           <div>
-            <h2
-              style={{
-                fontSize: "20px",
-                fontWeight: 800,
-              }}
-            >
-              Next<span>Offer</span>
-            </h2>
-
-            <p
-              style={{
-                fontSize: "12px",
-                color: "var(--text-muted)",
-              }}
-            >
-              Student Placement Prep Portal
-            </p>
+            <h2 style={{ fontSize: "20px", fontWeight: 800 }}>Next<span>Offer</span></h2>
+            <p style={{ fontSize: "12px", color: "var(--text-muted)" }}>Student Placement Prep Portal</p>
           </div>
         </div>
 
-        <h3
-          style={{
-            fontSize: "18px",
-            fontWeight: 700,
-            marginBottom: "6px",
-          }}
-        >
-          {mode === "login"
-            ? "Welcome back"
-            : "Create Student Account"}
-        </h3>
+        <div style={{ textAlign: "center", margin: "14px 0 20px", color: "var(--text-subtle)", fontSize: "11px", fontWeight: 600, letterSpacing: "1px" }}>
+          SIGN IN WITH YOUR ACCOUNT
+        </div>
 
-        <p
-          style={{
-            color: "var(--text-muted)",
-            fontSize: "13.5px",
-            marginBottom: "20px",
-          }}
-        >
+        <h3 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "6px" }}>
+          {mode === "login" ? "Welcome back" : "Create Student Account"}
+        </h3>
+        <p style={{ color: "var(--text-muted)", fontSize: "13.5px", marginBottom: "20px" }}>
           {mode === "login"
             ? "Log in to track your streak, solve coding challenges, and build your resume."
             : "Sign up to start practicing coding and prepare for tech placements."}
         </p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="custom-form"
-        >
+        <form onSubmit={handleSubmit} className="custom-form">
           {mode === "create" && (
             <div className="form-field-group">
               <label>Full Name *</label>
-
               <input
                 required
                 className="custom-input"
-                placeholder="e.g. Alex Morgan"
+                placeholder="e.g. Ruhani"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -234,17 +202,13 @@ export default function Login({ onLoginSuccess }) {
           <div className="form-field-group">
             <label>
               <span>Email Address *</span>
-
-              <span className="field-constraint-tag">
-                Valid email format
-              </span>
+              <span className="field-constraint-tag">Valid email format</span>
             </label>
-
             <StrictEmailInput
               required
               value={email}
               onChange={setEmail}
-              placeholder="e.g. student@college.edu"
+              placeholder="e.g. ruhani@student.edu"
             />
           </div>
 
@@ -252,29 +216,24 @@ export default function Login({ onLoginSuccess }) {
             <div className="form-field-group">
               <label>
                 <span>Phone Number</span>
-
-                <span className="field-constraint-tag">
-                  Digits only
-                </span>
+                <span className="field-constraint-tag">Digits only</span>
               </label>
-
               <StrictNumberInput
                 value={phone}
                 onChange={setPhone}
                 placeholder="e.g. 9876543210"
-                maxLength={12}
+                maxLength={15}
               />
             </div>
           )}
 
           <div className="form-field-group">
             <label>Password *</label>
-
             <input
               required
               type="password"
               className="custom-input"
-              placeholder="••••••••"
+              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -286,48 +245,31 @@ export default function Login({ onLoginSuccess }) {
                 color: "#f87171",
                 fontSize: "13px",
                 fontWeight: 600,
+                padding: "8px 12px",
+                background: "rgba(239, 68, 68, 0.1)",
+                borderRadius: "6px"
               }}
             >
-              {error}
+              âš  {error}
             </div>
           )}
 
           <button
             type="submit"
             className="btn-primary-gradient"
-            style={{
-              width: "100%",
-              justifyContent: "center",
-              padding: "12px",
-            }}
+            style={{ width: "100%", justifyContent: "center", padding: "12px", marginTop: "4px" }}
           >
-            {mode === "login"
-              ? "Sign In →"
-              : "Create Account →"}
+            {mode === "login" ? "Sign In â†’" : "Create Account â†’"}
           </button>
 
           {/* Toggle between login and sign up */}
-          <div
-            style={{
-              textAlign: "center",
-              marginTop: "12px",
-              fontSize: "13px",
-              color: "var(--text-muted)",
-            }}
-          >
+          <div style={{ textAlign: "center", marginTop: "14px", fontSize: "13px", color: "var(--text-muted)" }}>
             {mode === "login" ? (
               <>
                 Don't have an account?{" "}
-
                 <button
                   type="button"
-                  style={{
-                    background: "none",
-                    border: "none",
-                    color: "#818cf8",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                  }}
+                  style={{ background: "none", border: "none", color: "#818cf8", fontWeight: 700, cursor: "pointer" }}
                   onClick={() => {
                     setMode("create");
                     setError("");
@@ -339,16 +281,9 @@ export default function Login({ onLoginSuccess }) {
             ) : (
               <>
                 Already registered?{" "}
-
                 <button
                   type="button"
-                  style={{
-                    background: "none",
-                    border: "none",
-                    color: "#818cf8",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                  }}
+                  style={{ background: "none", border: "none", color: "#818cf8", fontWeight: 700, cursor: "pointer" }}
                   onClick={() => {
                     setMode("login");
                     setError("");
