@@ -1,0 +1,37 @@
+/* Pagination buttons */
+button.pagination-btn,
+button.pagination-page-btn {
+  background-color: #22263b !important;
+  color: #ffffff !important;
+  border: 1px solid #6651b8 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  cursor: pointer;
+}
+
+/* Selected page */
+button.pagination-page-btn.active {
+  background-color: #805cf5 !important;
+  color: #ffffff !important;
+  border-color: #805cf5 !important;
+}
+
+/* Hover */
+button.pagination-btn:hover:not(:disabled),
+button.pagination-page-btn:hover {
+  background-color: #5541a8 !important;
+  color: #ffffff !important;
+}
+
+/* Disabled Previous / Next */
+button.pagination-btn:disabled {
+  background-color: #22263b !important;
+  color: #8f94a8 !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pagination-btn,
+.pagination-page-btn {
+  background: #805cf5 !important;
+  color: white !important;
+}

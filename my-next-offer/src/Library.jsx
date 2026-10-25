@@ -1,7 +1,7 @@
 // Practice Library: Real-time Multi-Platform Coding Questions Explorer
 // Powered by live APIs from LeetCode, Codeforces, and GeeksforGeeks
 // Features: Difficulty filters, Favourites persistence, Topic filtering, Progress tracking, Pagination, and In-App Submissions
-
+import "./Pagination.css";
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
