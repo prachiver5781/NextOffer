@@ -1,0 +1,31 @@
+@import "./styles/index.css";
+/* Prachi task: personalized daily goal, progress reminder and weekly activity */
+.goal-activity-grid { margin-bottom: 20px; }
+.daily-goal-card, .activity-card { min-width: 0; }
+.goal-percent-label { color: var(--accent-primary, #9b87f5); font-weight: 800; font-size: 20px; }
+.goal-setting-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 18px 0 12px; color: var(--text-muted); font-size: 13px; }
+.goal-setting-row select { background: var(--bg-surface-elevated); color: var(--text-main); border: 1px solid var(--border-main); border-radius: 8px; padding: 8px 10px; outline-offset: 2px; }
+.goal-progress-track { height: 10px; overflow: hidden; border-radius: 99px; background: var(--bg-surface-elevated); border: 1px solid var(--border-main); }
+.goal-progress-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #7667f5, #37c9b5); transition: width .25s ease; }
+.goal-progress-caption { display: flex; justify-content: space-between; gap: 10px; color: var(--text-muted); font-size: 12px; margin-top: 8px; }
+.goal-complete-btn { margin-top: 16px; width: 100%; border: 0; cursor: pointer; }
+.goal-complete-btn:disabled { opacity: .8; cursor: default; }
+.goal-reminder { margin: 12px 0 0; color: var(--text-muted); font-size: 12px; line-height: 1.5; }
+.activity-streak { font-size: 12px; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
+.weekly-activity-chart { height: 116px; display: flex; align-items: flex-end; justify-content: space-around; gap: 10px; padding: 8px 4px 0; }
+.activity-day { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; height: 100%; color: var(--text-muted); font-size: 11px; }
+.activity-bar { width: min(26px, 70%); min-height: 8px; border-radius: 7px 7px 3px 3px; background: var(--border-main); transition: height .2s ease; }
+.activity-bar.is-active { background: linear-gradient(180deg, #37c9b5, #7667f5); box-shadow: 0 3px 12px #7667f52b; }
+.activity-legend { display: flex; align-items: center; gap: 7px; margin-top: 14px; color: var(--text-muted); font-size: 11px; }
+.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #37c9b5; margin-left: 4px; }
+.legend-dot-muted { background: var(--border-main); margin-left: 8px; }
+@media (max-width: 650px) { .goal-setting-row { align-items: flex-start; flex-direction: column; } .goal-setting-row select { width: 100%; } }
+.recent-learning-card { margin-bottom: 20px; }
+.recent-learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.recent-learning-item { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px; text-align: left; color: var(--text-main); background: var(--bg-surface-elevated); border: 1px solid var(--border-main); border-radius: 10px; cursor: pointer; transition: border-color .2s, transform .2s; }
+.recent-learning-item:hover { border-color: #8a7cf6; transform: translateY(-1px); }
+.recent-learning-icon { width: 36px; height: 36px; display: grid; place-items: center; flex-shrink: 0; border-radius: 9px; background: var(--bg-surface); font-size: 17px; }
+.recent-learning-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.recent-learning-copy strong { font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent-learning-copy small { font-size: 11px; color: var(--text-muted); }
+.recent-learning-arrow { margin-left: auto; color: var(--text-muted); }

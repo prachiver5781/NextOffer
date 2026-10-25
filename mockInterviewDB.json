@@ -1,0 +1,604 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "HR",
+      "question": "Tell me about yourself.",
+      "answer": "Give a short introduction about your education, skills, projects, and career goal."
+    },
+    {
+      "id": 2,
+      "category": "HR",
+      "question": "What are your strengths?",
+      "answer": "Choose strengths relevant to study or work, such as teamwork, consistency, or problem-solving, and give an example."
+    },
+    {
+      "id": 3,
+      "category": "HR",
+      "question": "What is one weakness you are improving?",
+      "answer": "Mention a real but manageable weakness and explain the steps you are taking to improve it."
+    },
+    {
+      "id": 4,
+      "category": "HR",
+      "question": "Why should we select you?",
+      "answer": "Explain how your skills, willingness to learn, and project experience fit the role."
+    },
+    {
+      "id": 5,
+      "category": "HR",
+      "question": "Why do you want this role?",
+      "answer": "Connect the role to your interests, current skills, and future learning goals."
+    },
+    {
+      "id": 6,
+      "category": "HR",
+      "question": "What is teamwork?",
+      "answer": "Teamwork means working together, sharing responsibilities, and helping a group reach a common goal."
+    },
+    {
+      "id": 7,
+      "category": "HR",
+      "question": "How do you handle a challenge?",
+      "answer": "Explain how you understand the problem, consider options, take action, and learn from the result."
+    },
+    {
+      "id": 8,
+      "category": "HR",
+      "question": "How do you manage your time?",
+      "answer": "Prioritise tasks, break large work into smaller steps, and track deadlines."
+    },
+    {
+      "id": 9,
+      "category": "HR",
+      "question": "Describe a project you worked on.",
+      "answer": "Explain the project's purpose, your contribution, the technologies used, and what you learned."
+    },
+    {
+      "id": 10,
+      "category": "HR",
+      "question": "How do you respond to feedback?",
+      "answer": "Listen carefully, ask for clarification when needed, and use useful feedback to improve."
+    },
+    {
+      "id": 11,
+      "category": "HR",
+      "question": "What motivates you?",
+      "answer": "Describe a genuine reason, such as learning new skills or solving useful problems."
+    },
+    {
+      "id": 12,
+      "category": "HR",
+      "question": "How do you work under pressure?",
+      "answer": "Stay organised, focus on the most important task, and communicate early if you need help."
+    },
+    {
+      "id": 13,
+      "category": "HR",
+      "question": "What is your career goal?",
+      "answer": "Share a realistic short-term learning goal and a longer-term direction."
+    },
+    {
+      "id": 14,
+      "category": "HR",
+      "question": "What did you learn from a mistake?",
+      "answer": "Explain what happened briefly, what you learned, and how you changed your approach."
+    },
+    {
+      "id": 15,
+      "category": "HR",
+      "question": "How would you resolve a disagreement in a team?",
+      "answer": "Listen to each person, discuss facts respectfully, and work toward the project's shared goal."
+    },
+    {
+      "id": 16,
+      "category": "HR",
+      "question": "What do you know about this company?",
+      "answer": "Mention accurate information about its work, products, or values and why it interests you."
+    },
+    {
+      "id": 17,
+      "category": "HR",
+      "question": "Are you comfortable learning new tools?",
+      "answer": "Explain how you use documentation, examples, and practice to learn unfamiliar tools."
+    },
+    {
+      "id": 18,
+      "category": "HR",
+      "question": "What makes a good team member?",
+      "answer": "Reliability, communication, respect, willingness to help, and completing agreed tasks."
+    },
+    {
+      "id": 19,
+      "category": "HR",
+      "question": "How do you prioritise tasks?",
+      "answer": "Compare deadlines and importance, then complete urgent and high-impact work first."
+    },
+    {
+      "id": 20,
+      "category": "HR",
+      "question": "Do you have any questions for the interviewer?",
+      "answer": "Ask about the role, team, learning opportunities, or what success looks like."
+    },
+    {
+      "id": 21,
+      "category": "Java",
+      "question": "What is Java?",
+      "answer": "Java is a high-level, class-based programming language commonly used to build applications."
+    },
+    {
+      "id": 22,
+      "category": "Java",
+      "question": "What is a variable?",
+      "answer": "A variable is a named place used to store a value."
+    },
+    {
+      "id": 23,
+      "category": "Java",
+      "question": "What are Java data types?",
+      "answer": "Java has primitive types such as int, char, boolean, and double, as well as reference types such as String and arrays."
+    },
+    {
+      "id": 24,
+      "category": "Java",
+      "question": "What is a class?",
+      "answer": "A class is a blueprint that defines data and behaviour for objects."
+    },
+    {
+      "id": 25,
+      "category": "Java",
+      "question": "What is an object?",
+      "answer": "An object is an instance of a class."
+    },
+    {
+      "id": 26,
+      "category": "Java",
+      "question": "What is a method?",
+      "answer": "A method is a named block of code that performs a task."
+    },
+    {
+      "id": 27,
+      "category": "Java",
+      "question": "What is a constructor?",
+      "answer": "A constructor initializes an object and has the same name as its class."
+    },
+    {
+      "id": 28,
+      "category": "Java",
+      "question": "What is inheritance?",
+      "answer": "Inheritance lets one class acquire accessible fields and methods from another class."
+    },
+    {
+      "id": 29,
+      "category": "Java",
+      "question": "What is polymorphism?",
+      "answer": "Polymorphism allows the same method name or interface to behave differently in different contexts."
+    },
+    {
+      "id": 30,
+      "category": "Java",
+      "question": "What is encapsulation?",
+      "answer": "Encapsulation combines data and methods and controls access to an object's data."
+    },
+    {
+      "id": 31,
+      "category": "Java",
+      "question": "What is abstraction?",
+      "answer": "Abstraction shows essential features while hiding implementation details."
+    },
+    {
+      "id": 32,
+      "category": "Java",
+      "question": "What is method overloading?",
+      "answer": "Overloading uses the same method name with different parameter lists in one class."
+    },
+    {
+      "id": 33,
+      "category": "Java",
+      "question": "What is method overriding?",
+      "answer": "Overriding happens when a subclass provides its own implementation of an inherited method."
+    },
+    {
+      "id": 34,
+      "category": "Java",
+      "question": "What is a static keyword?",
+      "answer": "A static member belongs to the class rather than to a particular object."
+    },
+    {
+      "id": 35,
+      "category": "Java",
+      "question": "What is the main method?",
+      "answer": "The main method is the usual entry point for a standalone Java application."
+    },
+    {
+      "id": 36,
+      "category": "Java",
+      "question": "What is an array?",
+      "answer": "An array stores a fixed-size sequence of values of the same declared type."
+    },
+    {
+      "id": 37,
+      "category": "Java",
+      "question": "What is a String?",
+      "answer": "A String represents text and is immutable in Java."
+    },
+    {
+      "id": 38,
+      "category": "Java",
+      "question": "What is exception handling?",
+      "answer": "Exception handling lets a program respond to exceptional situations using constructs such as try, catch, and finally."
+    },
+    {
+      "id": 39,
+      "category": "Java",
+      "question": "What is the difference between throw and throws?",
+      "answer": "throw explicitly throws an exception; throws declares exceptions a method may pass to its caller."
+    },
+    {
+      "id": 40,
+      "category": "Java",
+      "question": "What is a loop?",
+      "answer": "A loop repeats a block of code while a condition or iteration rule allows it."
+    },
+    {
+      "id": 41,
+      "category": "React",
+      "question": "What is React?",
+      "answer": "React is a JavaScript library used to build user interfaces from components."
+    },
+    {
+      "id": 42,
+      "category": "React",
+      "question": "What is a component?",
+      "answer": "A component is a reusable part of a user interface."
+    },
+    {
+      "id": 43,
+      "category": "React",
+      "question": "What is JSX?",
+      "answer": "JSX is syntax that lets you write HTML-like markup inside JavaScript."
+    },
+    {
+      "id": 44,
+      "category": "React",
+      "question": "What are props?",
+      "answer": "Props are values passed from a parent component to a child component."
+    },
+    {
+      "id": 45,
+      "category": "React",
+      "question": "What is state?",
+      "answer": "State is component data that can change and cause the interface to update."
+    },
+    {
+      "id": 46,
+      "category": "React",
+      "question": "What does useState do?",
+      "answer": "useState is a Hook that adds state to a function component."
+    },
+    {
+      "id": 47,
+      "category": "React",
+      "question": "What does useEffect do?",
+      "answer": "useEffect runs side-effect code, such as fetching data, after rendering according to its dependencies."
+    },
+    {
+      "id": 48,
+      "category": "React",
+      "question": "What is an event handler?",
+      "answer": "An event handler is a function that runs in response to an event such as a click."
+    },
+    {
+      "id": 49,
+      "category": "React",
+      "question": "What is conditional rendering?",
+      "answer": "Conditional rendering displays different UI depending on a condition."
+    },
+    {
+      "id": 50,
+      "category": "React",
+      "question": "Why do lists use keys?",
+      "answer": "Keys help React identify list items when items are added, removed, or changed."
+    },
+    {
+      "id": 51,
+      "category": "React",
+      "question": "What is a controlled input?",
+      "answer": "A controlled input gets its displayed value from React state and updates that state on change."
+    },
+    {
+      "id": 52,
+      "category": "React",
+      "question": "What is a form in React?",
+      "answer": "A form collects user input and commonly uses state and event handlers to process it."
+    },
+    {
+      "id": 53,
+      "category": "React",
+      "question": "What is React Router?",
+      "answer": "React Router helps a React application display different components for different URLs."
+    },
+    {
+      "id": 54,
+      "category": "React",
+      "question": "What is useNavigate?",
+      "answer": "useNavigate is a React Router Hook used to navigate to another route in code."
+    },
+    {
+      "id": 55,
+      "category": "React",
+      "question": "What is fetch()?",
+      "answer": "fetch() is a JavaScript function used to make network requests, such as requesting data from an API."
+    },
+    {
+      "id": 56,
+      "category": "React",
+      "question": "What is an API?",
+      "answer": "An API defines how software systems can communicate and exchange data."
+    },
+    {
+      "id": 57,
+      "category": "React",
+      "question": "What is JSON?",
+      "answer": "JSON is a text format for representing structured data using objects, arrays, and values."
+    },
+    {
+      "id": 58,
+      "category": "React",
+      "question": "What is localStorage?",
+      "answer": "localStorage stores small amounts of string data in the browser across page reloads."
+    },
+    {
+      "id": 59,
+      "category": "React",
+      "question": "Why use useEffect for fetching data?",
+      "answer": "It lets a component request data after it renders and update state when the response arrives."
+    },
+    {
+      "id": 60,
+      "category": "React",
+      "question": "What is a single-page application?",
+      "answer": "A single-page application updates parts of a page without loading a completely new HTML page for every navigation."
+    },
+    {
+      "id": 61,
+      "category": "AI/ML",
+      "question": "What is artificial intelligence?",
+      "answer": "Artificial intelligence is the field of creating systems that perform tasks associated with human intelligence."
+    },
+    {
+      "id": 62,
+      "category": "AI/ML",
+      "question": "What is machine learning?",
+      "answer": "Machine learning uses data to train models that find patterns and make predictions or decisions."
+    },
+    {
+      "id": 63,
+      "category": "AI/ML",
+      "question": "What is the difference between AI and ML?",
+      "answer": "AI is the broader field; machine learning is one approach within AI."
+    },
+    {
+      "id": 64,
+      "category": "AI/ML",
+      "question": "What is a dataset?",
+      "answer": "A dataset is a collection of related data used for analysis or model development."
+    },
+    {
+      "id": 65,
+      "category": "AI/ML",
+      "question": "What is a feature?",
+      "answer": "A feature is an input variable used by a machine-learning model."
+    },
+    {
+      "id": 66,
+      "category": "AI/ML",
+      "question": "What is a label?",
+      "answer": "A label is the target value a supervised model learns to predict."
+    },
+    {
+      "id": 67,
+      "category": "AI/ML",
+      "question": "What is supervised learning?",
+      "answer": "Supervised learning trains a model using examples that include the correct target labels."
+    },
+    {
+      "id": 68,
+      "category": "AI/ML",
+      "question": "What is unsupervised learning?",
+      "answer": "Unsupervised learning looks for patterns in data without supplied target labels."
+    },
+    {
+      "id": 69,
+      "category": "AI/ML",
+      "question": "What is classification?",
+      "answer": "Classification predicts a category, such as spam or not spam."
+    },
+    {
+      "id": 70,
+      "category": "AI/ML",
+      "question": "What is regression?",
+      "answer": "Regression predicts a numerical value, such as a price."
+    },
+    {
+      "id": 71,
+      "category": "AI/ML",
+      "question": "What is training data?",
+      "answer": "Training data is the data used to fit a model's parameters."
+    },
+    {
+      "id": 72,
+      "category": "AI/ML",
+      "question": "What is test data?",
+      "answer": "Test data is held aside to evaluate how well a trained model performs on unseen examples."
+    },
+    {
+      "id": 73,
+      "category": "AI/ML",
+      "question": "What is overfitting?",
+      "answer": "Overfitting occurs when a model learns training examples too closely and performs poorly on new data."
+    },
+    {
+      "id": 74,
+      "category": "AI/ML",
+      "question": "What is underfitting?",
+      "answer": "Underfitting occurs when a model is too simple to capture important patterns in the data."
+    },
+    {
+      "id": 75,
+      "category": "AI/ML",
+      "question": "What is model accuracy?",
+      "answer": "Accuracy is the proportion of predictions that are correct in a classification task."
+    },
+    {
+      "id": 76,
+      "category": "AI/ML",
+      "question": "What is data preprocessing?",
+      "answer": "Data preprocessing prepares data by handling issues such as missing values, inconsistent formats, and unsuitable scales."
+    },
+    {
+      "id": 77,
+      "category": "AI/ML",
+      "question": "Why is data important in ML?",
+      "answer": "Models learn patterns from data, so poor-quality or unrepresentative data can lead to poor results."
+    },
+    {
+      "id": 78,
+      "category": "AI/ML",
+      "question": "What is a neural network?",
+      "answer": "A neural network is a model made of connected computational units arranged in layers."
+    },
+    {
+      "id": 79,
+      "category": "AI/ML",
+      "question": "What is Python used for in AI/ML?",
+      "answer": "Python is widely used because it is readable and has libraries for data handling, analysis, and machine learning."
+    },
+    {
+      "id": 80,
+      "category": "AI/ML",
+      "question": "Give an example of machine learning.",
+      "answer": "An email spam filter can learn patterns from labelled examples to classify new messages."
+    },
+    {
+      "id": 81,
+      "category": "OOP",
+      "question": "What is object-oriented programming?",
+      "answer": "OOP organises programs around objects that combine data and behaviour."
+    },
+    {
+      "id": 82,
+      "category": "OOP",
+      "question": "Name the four common OOP principles.",
+      "answer": "Encapsulation, abstraction, inheritance, and polymorphism."
+    },
+    {
+      "id": 83,
+      "category": "OOP",
+      "question": "What is encapsulation?",
+      "answer": "Encapsulation keeps data and related methods together and controls access to internal state."
+    },
+    {
+      "id": 84,
+      "category": "OOP",
+      "question": "What is abstraction?",
+      "answer": "Abstraction focuses on essential behaviour and hides unnecessary implementation details."
+    },
+    {
+      "id": 85,
+      "category": "OOP",
+      "question": "What is inheritance?",
+      "answer": "Inheritance allows a class to reuse or extend behaviour from another class."
+    },
+    {
+      "id": 86,
+      "category": "OOP",
+      "question": "What is polymorphism?",
+      "answer": "Polymorphism allows a common interface or method name to represent different implementations."
+    },
+    {
+      "id": 87,
+      "category": "OOP",
+      "question": "What is a real-world example of a class?",
+      "answer": "A Car class could define fields such as colour and methods such as start()."
+    },
+    {
+      "id": 88,
+      "category": "OOP",
+      "question": "What is a real-world example of an object?",
+      "answer": "A specific red car is one object created from a Car class."
+    },
+    {
+      "id": 89,
+      "category": "OOP",
+      "question": "What is an access modifier?",
+      "answer": "An access modifier controls where a class member can be accessed, for example public or private."
+    },
+    {
+      "id": 90,
+      "category": "OOP",
+      "question": "Why use private fields?",
+      "answer": "Private fields help protect an object's internal data and allow controlled access through methods."
+    },
+    {
+      "id": 91,
+      "category": "OOP",
+      "question": "What is an interface in Java?",
+      "answer": "An interface defines a contract of methods that implementing classes provide."
+    },
+    {
+      "id": 92,
+      "category": "OOP",
+      "question": "What is an abstract class?",
+      "answer": "An abstract class cannot be instantiated directly and can provide shared code and abstract methods."
+    },
+    {
+      "id": 93,
+      "category": "OOP",
+      "question": "What is the difference between a class and an object?",
+      "answer": "A class defines a type; an object is a particular instance of that type."
+    },
+    {
+      "id": 94,
+      "category": "OOP",
+      "question": "What is a superclass?",
+      "answer": "A superclass is a class from which another class inherits."
+    },
+    {
+      "id": 95,
+      "category": "OOP",
+      "question": "What is a subclass?",
+      "answer": "A subclass is a class that inherits from another class."
+    },
+    {
+      "id": 96,
+      "category": "OOP",
+      "question": "What is composition?",
+      "answer": "Composition builds a class using objects of other classes as parts of it."
+    },
+    {
+      "id": 97,
+      "category": "OOP",
+      "question": "What is constructor overloading?",
+      "answer": "Constructor overloading means defining multiple constructors with different parameter lists."
+    },
+    {
+      "id": 98,
+      "category": "OOP",
+      "question": "What is dynamic method dispatch?",
+      "answer": "It is when an overridden method is selected at runtime based on the actual object type."
+    },
+    {
+      "id": 99,
+      "category": "OOP",
+      "question": "Why is code reuse useful?",
+      "answer": "It can reduce duplication and make code easier to maintain."
+    },
+    {
+      "id": 100,
+      "category": "OOP",
+      "question": "Why is OOP useful?",
+      "answer": "OOP can help organise larger programs into reusable, understandable components."
+    }
+  ]
+}

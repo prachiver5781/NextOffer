@@ -1,0 +1,27 @@
+NextOffer_Final integration notes
+
+Base project: team ZIP's NextOffer_Final folder.
+
+New user feature files installed:
+- src/CareerDetails.jsx
+- src/MockInterview.jsx
+- src/Roadmap.jsx
+- src/styles/CareerDetails.css
+- src/styles/MockInterview.css
+- src/styles/Roadmap.css
+- src/data/mockInterviewDB.json
+- src/data/roadmapData.js
+
+Integration changes:
+- src/App.jsx: added CareerDetails route and /mock-interview route; old /mock URL redirects to /mock-interview.
+- src/Layout.jsx: existing sidebar link now points to /mock-interview; no new layout file created.
+- src/MockInterview.jsx: loads question bank from local JSON, so a separate JSON Server is not required.
+- src/data/index.js: removed obsolete mockQuestions export and now re-exports placementRoadmap.
+- src/data/placementRoadmap.js: retained existing six-week roadmap data used by the team's Dashboard, under a clearer name.
+
+Removed obsolete files:
+- src/InterviewComponents.jsx (used only by old MockInterview.jsx)
+- src/data/mockQuestions.js (used only by old MockInterview.jsx)
+- src/data/roadmap.js (renamed to placementRoadmap.js so existing Dashboard functionality is preserved)
+
+Other team modules and their existing code were retained.
