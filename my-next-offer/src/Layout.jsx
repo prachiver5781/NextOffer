@@ -143,6 +143,18 @@ export default function Layout({ currentUser, onLogout, theme, toggleTheme }) {
             <span className="nav-icon">👤</span>
             <span>Profile</span>
           </NavLink>
+          <NavLink className={({ isActive }) => `sidebar-link ${isActive ? "active" : ""}`} to="/quick-notes">
+            <span className="nav-icon">???</span><span>Quick Notes</span>
+          </NavLink>
+          <NavLink className={({ isActive }) => `sidebar-link ${isActive ? "active" : ""}`} to="/settings">
+            <span className="nav-icon">??</span><span>Settings</span>
+          </NavLink>
+          <NavLink className={({ isActive }) => `sidebar-link ${isActive ? "active" : ""}`} to="/quick-notes">
+            <span className="nav-icon">???</span><span>Quick Notes</span>
+          </NavLink>
+          <NavLink className={({ isActive }) => `sidebar-link ${isActive ? "active" : ""}`} to="/settings">
+            <span className="nav-icon">??</span><span>Settings</span>
+          </NavLink>
         </nav>
 
         {/* Sidebar Footer with Theme toggle and Logout */}
@@ -255,3 +267,5 @@ export default function Layout({ currentUser, onLogout, theme, toggleTheme }) {
     </div>
   );
 }
+
+

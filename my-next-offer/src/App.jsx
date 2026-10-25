@@ -123,6 +123,8 @@ export default function App() {
             element={<Submissions currentUser={currentUser} />}
           />
           <Route path="roadmap" element={<Roadmap />} />
+          <Route path="settings" element={<Settings currentUser={currentUser} updateUser={updateUser} />} />
+          <Route path="quick-notes" element={<QuickNotes currentUser={currentUser} />} />
           <Route
             path="mock"
             element={<MockInterview currentUser={currentUser} />}
@@ -153,3 +155,6 @@ export default function App() {
 
 // Re-export common inputs & validation for backward compatibility
 export * from "./ValidationInputs";
+import Settings from './Settings';
+import QuickNotes from './QuickNotes';
+
