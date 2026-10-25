@@ -1,40 +1,162 @@
-// Roadmap Page Component
-// 6-Week semester curriculum roadmap for technical placement preparation
+﻿
+import { useState } from "react";
+import "./styles/Roadmap.css";
+import { Link } from "react-router-dom";
 
-import React from "react";
-import { roadmap } from "./data";
+const careers = [
+  {
+    title: "Frontend Developer",
+    icon: "≡ƒÄ¿",
+    description: "Build websites and interactive user interfaces.",
+    skills: "HTML, CSS, JavaScript, React",
+    roadmap: "/frontend",
+    projects: "https://roadmap.sh/frontend/projects",
+  },
+  {
+    title: "Backend Developer",
+    icon: "ΓÜÖ∩╕Å",
+    description: "Build APIs, server logic and database systems.",
+    skills: "Node.js, APIs, SQL, databases",
+    roadmap: "/backend",
+    projects: "https://roadmap.sh/backend/projects",
+  },
+  {
+    title: "Full-Stack Developer",
+    icon: "≡ƒÆ╗",
+    description: "Develop both the frontend and backend of applications.",
+    skills: "React, Node.js, APIs, databases",
+    roadmap: "/full-stack",
+    projects: "https://roadmap.sh/full-stack/projects",
+  },
+  {
+    title: "Software Engineer",
+    icon: "≡ƒº⌐",
+    description: "Design, develop, test and maintain software.",
+    skills: "Programming, DSA, OOP, testing",
+    roadmap: "/software-engineer",
+    projects: "https://roadmap.sh/computer-science",
+  },
+  {
+    title: "AI/ML Engineer",
+    icon: "≡ƒñû",
+    description: "Build applications using AI and machine learning.",
+    skills: "Python, ML, data, AI tools",
+    roadmap: "/ai-ml-engineer",
+    projects: "https://roadmap.sh/ai-engineer/projects",
+  },
+  {
+    title: "Data Analyst / Data Scientist",
+    icon: "≡ƒôè",
+    description: "Analyze data and find useful patterns and insights.",
+    skills: "SQL, Python, statistics, visualization",
+    roadmap: "/data-analyst",
+    projects: "https://roadmap.sh/data-analyst/projects",
+  },
+  {
+    title: "Cybersecurity Engineer",
+    icon: "≡ƒöÉ",
+    description: "Help protect systems, applications and information.",
+    skills: "Networking, Linux, security fundamentals",
+    roadmap: "/cybersecurity-engineer",
+    projects: "https://roadmap.sh/cyber-security/projects",
+  },
+];
 
 export default function Roadmap() {
-  return (
-    <section>
-      {/* Header */}
-      <div style={{ marginBottom: "28px" }}>
-        <div className="badge-tag-purple">🗺️ CURRICULUM TIMELINE</div>
-        <h1 style={{ fontSize: "28px", fontWeight: 800, color: "var(--text-main)", marginBottom: "6px" }}>
-          Full-Stack & Placement Roadmap
-        </h1>
-        <p style={{ color: "var(--text-muted)", fontSize: "14px" }}>
-          Structured 6-week curriculum covering Web Fundamentals, Modern JavaScript ES6+, React Hooks, and Deployment.
-        </p>
-      </div>
+  const [search, setSearch] = useState("");
 
-      {/* Week by week cards */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-        {roadmap.map((item) => (
-          <div className="dashboard-panel-card" key={item.week}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-              <span className="badge-tag-purple">{item.week}</span>
-              <span className="difficulty-badge-easy">{item.tag}</span>
+  const filteredCareers = careers.filter((career) =>
+    `${career.title} ${career.description} ${career.skills}`
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
+
+  return (
+    <main className="roadmap-page">
+      <section className="roadmap-heading">
+        <p className="roadmap-label">NEXTOFFER CAREER GUIDANCE</p>
+
+        <h1>Choose Your Career Roadmap</h1>
+
+        <p>
+          Explore learning paths, required skills and project ideas
+          to plan your career journey.
+        </p>
+
+        <input
+          className="roadmap-search"
+          type="search"
+          placeholder="Search a career or skill..."
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          aria-label="Search career roadmaps"
+        />
+      </section>
+
+      <section className="career-grid">
+        {filteredCareers.map((career) => (
+          <article className="career-card" key={career.title}>
+            <div className="career-icon">{career.icon}</div>
+
+            <h2>{career.title}</h2>
+
+            <p>{career.description}</p>
+
+            <div className="career-skills">
+              <strong>Skills to explore</strong>
+              <p>{career.skills}</p>
             </div>
-            <h3 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "8px" }}>{item.title}</h3>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-              {item.items.map((i) => (
-                <span className="tag-pill" key={i}>{i}</span>
-              ))}
+
+            <div className="career-actions">
+              <Link
+                to={`/careers/${encodeURIComponent(career.title)}`}
+                className="roadmap-button"
+              >
+                Start Learning ΓåÆ
+              </Link>
+
+              <a
+                href={career.projects}
+                target="_blank"
+                rel="noreferrer"
+                className="project-link"
+              >
+                Explore Projects Γåù
+              </a>
+
+              
+<a
+  href={career.roadmap.startsWith("/")
+    ? `https://roadmap.sh${career.roadmap}`
+    : career.roadmap}
+  target="_blank"
+  rel="noreferrer"
+  className="roadmap-button"
+>
+  View Learning Path Γåù
+</a>
+
             </div>
-          </div>
+          </article>
         ))}
-      </div>
-    </section>
+      </section>
+
+      {filteredCareers.length === 0 && (
+        <p className="roadmap-empty">
+          No matching careers found. Try another search.
+        </p>
+      )}
+
+      <footer className="roadmap-footer">
+        Project inspiration and additional resources are available at{" "}
+        <a
+          href="https://roadmap.sh/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          roadmap.sh
+        </a>.
+      </footer>
+    </main>
   );
 }

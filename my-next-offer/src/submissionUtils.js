@@ -1,4 +1,4 @@
-const STORAGE_KEY = "nextoffer-submissions";
+﻿const STORAGE_KEY = "nextoffer-submissions";
 
 export function getSubmissions() {
   try {
