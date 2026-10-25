@@ -1,4 +1,3 @@
-git add src/Dashboard.jsx src/components/DailyAdviceWidget.jsx src/components/ProfessionalLinksBar.jsx
 // Designed for B.Tech CSE Project Evaluation II
 // Implements Image 1 Requirements:
 // 1. Clickable icons on the profile and resume
