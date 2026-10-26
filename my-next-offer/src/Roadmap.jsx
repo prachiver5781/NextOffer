@@ -1,4 +1,4 @@
-﻿
+
 import { useState } from "react";
 import "./styles/Roadmap.css";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const careers = [
   {
     title: "Frontend Developer",
-    icon: "≡ƒÄ¿",
+    icon: "🎨",
     description: "Build websites and interactive user interfaces.",
     skills: "HTML, CSS, JavaScript, React",
     roadmap: "/frontend",
@@ -14,7 +14,7 @@ const careers = [
   },
   {
     title: "Backend Developer",
-    icon: "ΓÜÖ∩╕Å",
+    icon: "⚙️",
     description: "Build APIs, server logic and database systems.",
     skills: "Node.js, APIs, SQL, databases",
     roadmap: "/backend",
@@ -22,7 +22,7 @@ const careers = [
   },
   {
     title: "Full-Stack Developer",
-    icon: "≡ƒÆ╗",
+    icon: "💻",
     description: "Develop both the frontend and backend of applications.",
     skills: "React, Node.js, APIs, databases",
     roadmap: "/full-stack",
@@ -30,7 +30,7 @@ const careers = [
   },
   {
     title: "Software Engineer",
-    icon: "≡ƒº⌐",
+    icon: "🧩",
     description: "Design, develop, test and maintain software.",
     skills: "Programming, DSA, OOP, testing",
     roadmap: "/software-engineer",
@@ -38,7 +38,7 @@ const careers = [
   },
   {
     title: "AI/ML Engineer",
-    icon: "≡ƒñû",
+    icon: "🤖",
     description: "Build applications using AI and machine learning.",
     skills: "Python, ML, data, AI tools",
     roadmap: "/ai-ml-engineer",
@@ -46,7 +46,7 @@ const careers = [
   },
   {
     title: "Data Analyst / Data Scientist",
-    icon: "≡ƒôè",
+    icon: "📊",
     description: "Analyze data and find useful patterns and insights.",
     skills: "SQL, Python, statistics, visualization",
     roadmap: "/data-analyst",
@@ -54,7 +54,7 @@ const careers = [
   },
   {
     title: "Cybersecurity Engineer",
-    icon: "≡ƒöÉ",
+    icon: "🔐",
     description: "Help protect systems, applications and information.",
     skills: "Networking, Linux, security fundamentals",
     roadmap: "/cybersecurity-engineer",
@@ -112,7 +112,7 @@ export default function Roadmap() {
                 to={`/careers/${encodeURIComponent(career.title)}`}
                 className="roadmap-button"
               >
-                Start Learning ΓåÆ
+                Start Learning →
               </Link>
 
               <a
@@ -121,7 +121,7 @@ export default function Roadmap() {
                 rel="noreferrer"
                 className="project-link"
               >
-                Explore Projects Γåù
+                Explore Projects ↗
               </a>
 
               
@@ -133,7 +133,7 @@ export default function Roadmap() {
   rel="noreferrer"
   className="roadmap-button"
 >
-  View Learning Path Γåù
+  View Learning Path ↗
 </a>
 
             </div>

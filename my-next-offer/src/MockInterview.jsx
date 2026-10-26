@@ -1,4 +1,4 @@
-﻿
+
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles/MockInterview.css";
@@ -343,7 +343,7 @@ export default function MockInterview() {
           </header>
 
           <section className="mi-hero">
-            <div className="mi-hero-icon">Γ£ª</div>
+            <div className="mi-hero-icon">✦</div>
 
             <div className="mi-hero-copy">
               <p className="mi-eyebrow">READY TO PRACTISE?</p>
@@ -361,7 +361,7 @@ export default function MockInterview() {
                   {["Mixed", "HR", "Java", "React", "AI/ML", "OOP"].map((item) => <option key={item} value={item}>{item}</option>)}
                 </select>
               </label>
-              <button className="mi-primary" onClick={startInterview}>Start Interview ΓåÆ</button>
+              <button className="mi-primary" onClick={startInterview}>Start Interview →</button>
             </div>
           </section>
 
@@ -394,7 +394,7 @@ export default function MockInterview() {
           </section>
 
           <div className="mi-search">
-            <span>Γîò</span>
+            <span>⌕</span>
             <input
               value={search}
               onChange={(event) =>
@@ -475,11 +475,11 @@ export default function MockInterview() {
                     onClick={() => toggleLearned(item.id)}
                   >
                     {learned.includes(item.id)
-                      ? "Γ£ô Learned"
+                      ? "✓ Learned"
                       : "+ Mark learned"}
                   </button>
                   <button className="mi-text-button" onClick={() => toggleBookmark(item.id)}>
-                    {bookmarked.includes(item.id) ? "Γÿà Bookmarked" : "Γÿå Bookmark"}
+                    {bookmarked.includes(item.id) ? "★ Bookmarked" : "☆ Bookmark"}
                   </button>
                 </div>
               </article>
@@ -495,7 +495,7 @@ export default function MockInterview() {
           {filteredQuestions.length > 0 && (
             <footer className="mi-pagination">
               <span>
-                Showing {startIndex + 1}ΓÇô
+                Showing {startIndex + 1}–
                 {Math.min(
                   startIndex + QUESTIONS_PER_PAGE,
                   filteredQuestions.length
@@ -509,7 +509,7 @@ export default function MockInterview() {
                   disabled={page === 1}
                   onClick={() => setPage(page - 1)}
                 >
-                  ΓåÉ Previous
+                  ← Previous
                 </button>
 
                 <span className="mi-page-number">
@@ -521,7 +521,7 @@ export default function MockInterview() {
                   disabled={page === totalPages}
                   onClick={() => setPage(page + 1)}
                 >
-                  Next ΓåÆ
+                  Next →
                 </button>
               </div>
             </footer>
@@ -543,10 +543,10 @@ export default function MockInterview() {
                   </h1>
                   <p style={{ color: "#c4b5fd", fontSize: 14, maxWidth: 580, lineHeight: 1.5 }}>
                     {performance?.completionPercentage === 100
-                      ? "≡ƒÅå Outstanding Completion! You attempted all questions. Review your responses below to calibrate against standard interview answers."
+                      ? "🏆 Outstanding Completion! You attempted all questions. Review your responses below to calibrate against standard interview answers."
                       : performance?.completionPercentage >= 60
-                      ? "ΓÜí Solid Performance! You completed the majority of questions within the 10-minute limit. Review unattempted questions to strengthen your weak spots."
-                      : "≡ƒÆí Needs Practice. Several questions were left unanswered. Review the suggested answers below and bookmark tricky concepts for revision."}
+                      ? "⚡ Solid Performance! You completed the majority of questions within the 10-minute limit. Review unattempted questions to strengthen your weak spots."
+                      : "💡 Needs Practice. Several questions were left unanswered. Review the suggested answers below and bookmark tricky concepts for revision."}
                   </p>
                 </div>
 
@@ -589,7 +589,7 @@ export default function MockInterview() {
               {performance?.topicStats && Object.keys(performance.topicStats).length > 0 && (
                 <div style={{ margin: "24px 0" }}>
                   <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 12, color: "#f4f4fb" }}>
-                    ≡ƒôè Topic-wise Performance Breakdown
+                    📊 Topic-wise Performance Breakdown
                   </h3>
                   <div className="mi-topic-grid">
                     {Object.entries(performance.topicStats).map(([cat, stats]) => {
@@ -615,19 +615,19 @@ export default function MockInterview() {
               {/* Action Toolbar */}
               <div className="mi-results-actions" style={{ marginBottom: 30 }}>
                 <Link to="/dashboard" className="mi-secondary" style={{ textDecoration: "none" }}>
-                  ≡ƒôè Back to Dashboard
+                  📊 Back to Dashboard
                 </Link>
                 <button className="mi-secondary" onClick={() => setMode("library")}>
-                  ≡ƒôÜ Question Library
+                  📚 Question Library
                 </button>
                 <button className="mi-primary" onClick={startInterview}>
-                  ≡ƒöä Try Another Interview
+                  🔄 Try Another Interview
                 </button>
               </div>
 
               {/* Detailed Review Cards */}
               <h3 style={{ fontSize: 18, fontWeight: 800, marginBottom: 16, color: "#ffffff" }}>
-                ≡ƒô¥ Detailed Question-by-Question Review
+                📝 Detailed Question-by-Question Review
               </h3>
 
               {interviewQuestions.map((item, index) => {
@@ -637,7 +637,7 @@ export default function MockInterview() {
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
                       <span className="mi-category">{item.category}</span>
                       <span className={`mi-status-pill ${isAnswered ? "answered" : "unanswered"}`}>
-                        {isAnswered ? `Γ£ô Answered (${item.wordCount} words)` : "ΓÜá∩╕Å Unanswered"}
+                        {isAnswered ? `✓ Answered (${item.wordCount} words)` : "⚠️ Unanswered"}
                       </span>
                     </div>
 
@@ -669,14 +669,14 @@ export default function MockInterview() {
                         className="mi-text-button"
                         onClick={() => toggleLearned(item.id)}
                       >
-                        {learned.includes(item.id) ? "Γ£ô Learned" : "+ Mark learned"}
+                        {learned.includes(item.id) ? "✓ Learned" : "+ Mark learned"}
                       </button>
                       <button
                         type="button"
                         className="mi-text-button"
                         onClick={() => toggleBookmark(item.id)}
                       >
-                        {bookmarked.includes(item.id) ? "Γÿà Bookmarked" : "Γÿå Bookmark"}
+                        {bookmarked.includes(item.id) ? "★ Bookmarked" : "☆ Bookmark"}
                       </button>
                     </div>
                   </article>
@@ -706,7 +706,7 @@ export default function MockInterview() {
                         onClick={() => goToQuestion(idx)}
                         title={`Jump to Question ${idx + 1}`}
                       >
-                        <span className="mi-pill-status">{hasAnswer ? "Γ£ô" : "ΓÇó"}</span>
+                        <span className="mi-pill-status">{hasAnswer ? "✓" : "•"}</span>
                         <span>Q{idx + 1}</span>
                       </button>
                     );
@@ -730,7 +730,7 @@ export default function MockInterview() {
                           className="mi-submit-btn-primary"
                           onClick={() => promptSubmitInterview()}
                         >
-                          Submit Interview Γ£ô
+                          Submit Interview ✓
                         </button>
                       </>
                     );
@@ -748,10 +748,10 @@ export default function MockInterview() {
                       onClick={() => setMode("library")}
                       style={{ marginBottom: 6 }}
                     >
-                      ΓåÉ Exit interview
+                      ← Exit interview
                     </button>
                     <p className="mi-eyebrow" style={{ marginTop: 4 }}>
-                      MOCK INTERVIEW IN PROGRESS ┬╖ {currentQuestion.category}
+                      MOCK INTERVIEW IN PROGRESS · {currentQuestion.category}
                     </p>
                     <span style={{ fontSize: 13, color: "#c4b5fd" }}>
                       Question {currentIndex + 1} of {interviewQuestions.length}
@@ -787,7 +787,7 @@ export default function MockInterview() {
 
                 <div className="mi-interview-bottom">
                   <span style={{ fontSize: 12, color: "#a5a3c0" }}>
-                    {answer.trim() ? answer.trim().split(/\s+/).length : 0} words written ┬╖ {answer.length} characters
+                    {answer.trim() ? answer.trim().split(/\s+/).length : 0} words written · {answer.length} characters
                   </span>
 
                   <div style={{ display: "flex", gap: 10 }}>
@@ -797,7 +797,7 @@ export default function MockInterview() {
                         className="mi-secondary"
                         onClick={prevQuestion}
                       >
-                        ΓåÉ Previous
+                        ← Previous
                       </button>
                     )}
 
@@ -807,7 +807,7 @@ export default function MockInterview() {
                         className="mi-primary"
                         onClick={nextQuestion}
                       >
-                        Save & Next Question ΓåÆ
+                        Save & Next Question →
                       </button>
                     ) : (
                       <button
@@ -815,7 +815,7 @@ export default function MockInterview() {
                         className="mi-submit-btn-primary"
                         onClick={() => promptSubmitInterview()}
                       >
-                        Review & Submit Interview Γ£ô
+                        Review & Submit Interview ✓
                       </button>
                     )}
                   </div>
@@ -837,7 +837,7 @@ export default function MockInterview() {
               aria-label="Confirm Mock Interview Submission"
             >
               <div className="mi-modal-card">
-                <span className="badge-tag-purple">≡ƒôï ASSESSMENT SUBMISSION</span>
+                <span className="badge-tag-purple">📋 ASSESSMENT SUBMISSION</span>
                 <h3>Submit Mock Interview?</h3>
                 <p style={{ color: "#a5a3c0", fontSize: 13.5, lineHeight: 1.5, margin: "4px 0 16px" }}>
                   Review your completion status before finalizing your interview submission.
@@ -874,7 +874,7 @@ export default function MockInterview() {
 
                       {unanswered > 0 && (
                         <div className="mi-modal-warning">
-                          ΓÜá∩╕Å You have <strong>{unanswered} unanswered question(s)</strong>.
+                          ⚠️ You have <strong>{unanswered} unanswered question(s)</strong>.
                           You can go back to complete your answers, or confirm to submit now.
                         </div>
                       )}
@@ -886,7 +886,7 @@ export default function MockInterview() {
                           disabled={isSubmitting}
                           onClick={() => setShowConfirmModal(false)}
                         >
-                          ΓåÉ Keep Editing
+                          ← Keep Editing
                         </button>
                         <button
                           type="button"
@@ -894,7 +894,7 @@ export default function MockInterview() {
                           disabled={isSubmitting}
                           onClick={executeSubmitInterview}
                         >
-                          {isSubmitting ? "Submitting..." : "Confirm & Submit Interview Γ£ô"}
+                          {isSubmitting ? "Submitting..." : "Confirm & Submit Interview ✓"}
                         </button>
                       </div>
                     </>

@@ -1,4 +1,4 @@
-﻿
+
 .sub-page {
   min-height: 100vh;
   padding: 32px;
@@ -471,7 +471,7 @@
 .sub-interview-card { display:flex; align-items:center; gap:18px; }
 @media(max-width:650px){.submission-comparison-grid{grid-template-columns:1fr}.sub-interview-card{flex-wrap:wrap}.sub-card-controls{margin-left:0;width:100%}}
 
-/* Unified Submissions page styling ΓÇö matches the shared NextOffer dashboard cards */
+/* Unified Submissions page styling — matches the shared NextOffer dashboard cards */
 .mock-submissions-section,
 .submissions-table-card {
   color: var(--text-main);

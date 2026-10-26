@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { roadmapData } from "./data/roadmapData";
 import "./styles/CareerDetails.css";
@@ -56,7 +56,7 @@ export default function CareerDetails() {
           <p>Please select a career from the roadmap page.</p>
 
           <Link className="career-primary-button" to="/roadmap">
-            Back to Career Roadmaps ΓåÆ
+            Back to Career Roadmaps →
           </Link>
         </div>
       </main>
@@ -118,7 +118,7 @@ export default function CareerDetails() {
       <p className="semester-goal">{item.goal}</p>
 
       <div className="semester-prerequisite">
-        <span className="info-icon">Γåù</span>
+        <span className="info-icon">↗</span>
 
         <div>
           <strong>Prerequisites</strong>
@@ -158,7 +158,7 @@ export default function CareerDetails() {
                   <p className="topic-explanation">{topic.why}</p>
 
                   <div className="practice-box">
-                    <span className="practice-label">Γ£ª TRY IT</span>
+                    <span className="practice-label">✦ TRY IT</span>
                     <p>{topic.practice}</p>
                   </div>
                 </div>
@@ -185,7 +185,7 @@ export default function CareerDetails() {
       </div>
 
       <div className="semester-project">
-        <div className="project-icon">Γ£º</div>
+        <div className="project-icon">✧</div>
 
         <div className="project-content">
           <span className="content-eyebrow">
@@ -216,9 +216,9 @@ export default function CareerDetails() {
               rel="noreferrer"
               key={resource.url}
             >
-              <span className="resource-icon">Γåù</span>
+              <span className="resource-icon">↗</span>
               <span>{resource.label}</span>
-              <span className="resource-arrow">ΓåÆ</span>
+              <span className="resource-arrow">→</span>
             </a>
           ))}
         </div>
@@ -229,7 +229,7 @@ export default function CareerDetails() {
   return (
     <main className="career-details">
       <Link className="back-link" to="/roadmap">
-        ΓåÉ All Career Roadmaps
+        ← All Career Roadmaps
       </Link>
 
       {/* Career overview */}
@@ -253,7 +253,7 @@ export default function CareerDetails() {
         <p className="career-summary">{career.summary}</p>
 
         <div className="career-fit">
-          <span className="fit-icon">Γ£ª</span>
+          <span className="fit-icon">✦</span>
 
           <div>
             <strong>Is this career for you?</strong>
@@ -301,12 +301,12 @@ export default function CareerDetails() {
               Follow a structured, semester-wise learning plan
               designed around your chosen career. Learn the
               fundamentals, practise your skills, build projects,
-              and prepare for placementsΓÇöall in one place.
+              and prepare for placements—all in one place.
             </p>
           </div>
 
           <span className="journey-badge">
-            Γ£º 8-semester journey
+            ✧ 8-semester journey
           </span>
         </div>
 
@@ -317,7 +317,7 @@ export default function CareerDetails() {
 
             <div className="group-heading-copy">
               <h3>Common Foundations</h3>
-              <p>Semesters 1ΓÇô4 ┬╖ Build your core technical skills</p>
+              <p>Semesters 1–4 · Build your core technical skills</p>
             </div>
 
             <button
@@ -327,7 +327,7 @@ export default function CareerDetails() {
               }
               aria-expanded={showFoundations}
             >
-              {showFoundations ? "Hide Γåæ" : "Show Γåô"}
+              {showFoundations ? "Hide ↑" : "Show ↓"}
             </button>
           </div>
 
@@ -345,7 +345,7 @@ export default function CareerDetails() {
 
             <div className="group-heading-copy">
               <h3>Career Specialization</h3>
-              <p>Semesters 5ΓÇô8 ┬╖ Focus on {careerName}</p>
+              <p>Semesters 5–8 · Focus on {careerName}</p>
             </div>
           </div>
 
@@ -363,7 +363,7 @@ export default function CareerDetails() {
       {/* Placement checklist */}
       <section className="placement-section">
         <div className="placement-header">
-          <div className="placement-icon">Γ£ô</div>
+          <div className="placement-icon">✓</div>
 
           <div>
             <p className="career-eyebrow">YOUR NEXT BIG STEP</p>
@@ -419,7 +419,7 @@ export default function CareerDetails() {
                 />
 
                 <span className="custom-checkbox">
-                  {isCompleted ? "Γ£ô" : ""}
+                  {isCompleted ? "✓" : ""}
                 </span>
 
                 <span className="placement-task-content">
@@ -447,7 +447,7 @@ export default function CareerDetails() {
         </div>
 
         <div className="footer-links">
-          <Link to="/roadmap">ΓåÉ Explore another career</Link>
+          <Link to="/roadmap">← Explore another career</Link>
 
           <a
             className="external-roadmap-link"
@@ -456,7 +456,7 @@ export default function CareerDetails() {
             rel="noreferrer"
           >
             Explore more roadmaps
-            <span aria-hidden="true"> Γåù</span>
+            <span aria-hidden="true"> ↗</span>
           </a>
         </div>
       </footer>

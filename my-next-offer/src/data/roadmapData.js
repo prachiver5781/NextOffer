@@ -1,4 +1,4 @@
-﻿
+
 const topic = (name, why, practice) => ({ name, why, practice });
 
 const semester = (number, title, goal, prerequisites, topics, project, resources) => ({
@@ -353,43 +353,43 @@ const specializations = {
 
 const roleDescriptions = {
   "Frontend Developer": {
-    icon: "≡ƒÄ¿",
+    icon: "🎨",
     summary: "Build the pages and interactive interfaces people use.",
     skills: ["HTML", "CSS", "JavaScript", "React", "Accessibility"],
     fit: "You enjoy visual problem-solving, user experience and building things people can interact with."
   },
   "Backend Developer": {
-    icon: "ΓÜÖ∩╕Å",
+    icon: "⚙️",
     summary: "Build APIs, application logic, databases and reliable services.",
     skills: ["Programming", "APIs", "SQL", "Authentication", "Testing"],
     fit: "You enjoy logic, data, system behaviour and solving problems behind the interface."
   },
   "Full-Stack Developer": {
-    icon: "≡ƒöù",
+    icon: "🔗",
     summary: "Connect the frontend, backend and database into a complete product.",
     skills: ["React", "Backend", "SQL", "APIs", "Deployment"],
     fit: "You like understanding how a complete application works from screen to database."
   },
   "Software Engineer": {
-    icon: "≡ƒÆ╗",
+    icon: "💻",
     summary: "Design, implement, test and maintain software systems.",
     skills: ["DSA", "OOP", "Testing", "Core CS", "Design"],
     fit: "You enjoy problem-solving, clean code and understanding how software systems fit together."
   },
   "AI/ML Engineer": {
-    icon: "≡ƒñû",
+    icon: "🤖",
     summary: "Prepare data, train models and build useful AI-powered systems.",
     skills: ["Python", "Statistics", "Data", "Machine Learning", "Evaluation"],
     fit: "You enjoy maths, experimentation, data and learning how models make predictions."
   },
   "Data Analyst / Data Scientist": {
-    icon: "≡ƒôè",
+    icon: "📊",
     summary: "Use data, statistics and visualisation to answer practical questions.",
     skills: ["SQL", "Python", "Statistics", "Visualisation", "Communication"],
     fit: "You enjoy finding patterns, asking questions and explaining evidence clearly."
   },
   "Cybersecurity Engineer": {
-    icon: "≡ƒ¢í∩╕Å",
+    icon: "🛡️",
     summary: "Help protect applications, systems and information from security risks.",
     skills: ["Networking", "Linux", "Security", "Monitoring", "Risk"],
     fit: "You enjoy investigating how systems work and improving their safety and reliability."

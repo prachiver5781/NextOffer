@@ -1,4 +1,4 @@
-﻿// Submissions Log Component
+// Submissions Log Component
 // Displays student's saved code submissions and allows viewing the submitted code
 
 import React, { useState, useMemo, useEffect } from "react";
@@ -56,7 +56,7 @@ export default function Submissions({ currentUser }) {
   return (
     <section>
       <div style={{ marginBottom: "24px" }}>
-        <div className="badge-tag-purple">≡ƒô¥ SUBMISSIONS & INTERVIEW HISTORY</div>
+        <div className="badge-tag-purple">📝 SUBMISSIONS & INTERVIEW HISTORY</div>
         <h1 style={{ fontSize: "28px", fontWeight: 800, color: "var(--text-main)", marginBottom: "6px" }}>
           Practice Library & Mock Interview Submissions
         </h1>
@@ -68,8 +68,8 @@ export default function Submissions({ currentUser }) {
       {selectedMock && (
         <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label="Mock interview review">
           <div className="modal-dialog-card wide">
-            <div className="modal-header-row"><div><span className="badge-tag-purple">{selectedMock.category || "Mock Interview"}</span><h3>Interview answer review</h3></div><button className="close-modal-btn" onClick={() => setSelectedMock(null)} aria-label="Close">Γ£ò</button></div>
-            <p style={{ color: "var(--text-muted)", marginBottom: 16 }}>Completed: {selectedMock.date || selectedMock.completedAt || "ΓÇö"} ┬╖ Time: {(typeof selectedMock.durationSeconds === "number" ? `${Math.floor(selectedMock.durationSeconds / 60)}m ${selectedMock.durationSeconds % 60}s` : selectedMock.duration || selectedMock.timeTaken || "ΓÇö")}</p>
+            <div className="modal-header-row"><div><span className="badge-tag-purple">{selectedMock.category || "Mock Interview"}</span><h3>Interview answer review</h3></div><button className="close-modal-btn" onClick={() => setSelectedMock(null)} aria-label="Close">✕</button></div>
+            <p style={{ color: "var(--text-muted)", marginBottom: 16 }}>Completed: {selectedMock.date || selectedMock.completedAt || "—"} · Time: {(typeof selectedMock.durationSeconds === "number" ? `${Math.floor(selectedMock.durationSeconds / 60)}m ${selectedMock.durationSeconds % 60}s` : selectedMock.duration || selectedMock.timeTaken || "—")}</p>
             {(selectedMock.questions || []).map((q, index) => (
               <div className="mock-answer-review" key={q.id || q.questionId || index}>
                 <h4>{index + 1}. {q.question || q.questionTitle || "Interview question"}</h4>
@@ -109,7 +109,7 @@ export default function Submissions({ currentUser }) {
               Solve problems in the Practice Library to log your code solutions here.
             </p>
             <Link to="/topics" className="btn-primary-gradient" style={{ marginTop: "16px", display: "inline-flex" }}>
-              Browse Practice Library ΓåÆ
+              Browse Practice Library →
             </Link>
           </div>
         ) : (
@@ -141,7 +141,7 @@ export default function Submissions({ currentUser }) {
                   <td style={{ color: "var(--text-muted)", fontSize: "13px" }}>
                     {sub.submittedAt && !Number.isNaN(Date.parse(sub.submittedAt))
                       ? new Date(sub.submittedAt).toLocaleString([], { dateStyle: "short", timeStyle: "short" })
-                      : (sub.submittedAt || "ΓÇö")}
+                      : (sub.submittedAt || "—")}
                   </td>
                   <td>
                     <span className={sub.status === "Executed successfully" ? "status-badge-accepted" : "tag-pill"} title={sub.executionMode || "Saved submission record"}>
@@ -185,7 +185,7 @@ export default function Submissions({ currentUser }) {
               <article className="mock-attempt-card" key={attempt.id}>
                 <div className="mock-attempt-card-top"><span className="mock-attempt-tag">Mock Interview</span><span>{attempt.date || attempt.completedAt || "Completed"}</span></div>
                 <h3>{attempt.category || "Mixed Interview"}</h3>
-                <div className="mock-attempt-stats"><span>{Array.isArray(attempt.questions) ? attempt.questions.length : 0} questions</span><span>{attempt.answeredCount ?? attempt.questions.filter((q) => q.userAnswer?.trim()).length} answered</span><span>{(typeof attempt.durationSeconds === "number" ? `${Math.floor(attempt.durationSeconds / 60)}m ${attempt.durationSeconds % 60}s` : attempt.duration || attempt.timeTaken || "ΓÇö")}</span></div>
+                <div className="mock-attempt-stats"><span>{Array.isArray(attempt.questions) ? attempt.questions.length : 0} questions</span><span>{attempt.answeredCount ?? attempt.questions.filter((q) => q.userAnswer?.trim()).length} answered</span><span>{(typeof attempt.durationSeconds === "number" ? `${Math.floor(attempt.durationSeconds / 60)}m ${attempt.durationSeconds % 60}s` : attempt.duration || attempt.timeTaken || "—")}</span></div>
                 <button type="button" className="view-code-btn" onClick={() => setSelectedMock(attempt)}>Review answers</button>
                 <button type="button" className="mock-attempt-delete" onClick={() => { const updated = deleteSubmission(attempt.id); setMockSubmissions(updated); if (selectedMock?.id === attempt.id) setSelectedMock(null); }}>Delete</button>
               </article>
@@ -208,15 +208,15 @@ export default function Submissions({ currentUser }) {
                 className="close-modal-btn"
                 onClick={() => setSelectedSubmission(null)}
               >
-                Γ£ò
+                ✕
               </button>
             </div>
 
             <div style={{ marginBottom: "16px", fontSize: "13px", color: "var(--text-muted)" }}>
-              Submitted on <strong>{selectedSubmission.submittedAt && !Number.isNaN(Date.parse(selectedSubmission.submittedAt)) ? new Date(selectedSubmission.submittedAt).toLocaleString() : (selectedSubmission.submittedAt || "ΓÇö")}</strong> ΓÇó Language: <strong>{selectedSubmission.language || "JavaScript"}</strong>
+              Submitted on <strong>{selectedSubmission.submittedAt && !Number.isNaN(Date.parse(selectedSubmission.submittedAt)) ? new Date(selectedSubmission.submittedAt).toLocaleString() : (selectedSubmission.submittedAt || "—")}</strong> • Language: <strong>{selectedSubmission.language || "JavaScript"}</strong>
               {selectedSubmission.problemUrl && (
                 <span style={{ marginLeft: 12 }}>
-                  ΓÇó <a href={selectedSubmission.problemUrl} target="_blank" rel="noreferrer" style={{ color: "var(--cyan)", textDecoration: "underline" }}>View Original Problem Γåù</a>
+                  • <a href={selectedSubmission.problemUrl} target="_blank" rel="noreferrer" style={{ color: "var(--cyan)", textDecoration: "underline" }}>View Original Problem ↗</a>
                 </span>
               )}
             </div>
